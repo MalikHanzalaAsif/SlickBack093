@@ -5,6 +5,7 @@ const dbUrl = "mongodb://127.0.0.1:27017/SlickBack";
 const app = express();
 const port = 8080;
 import Contact from "./models/Contact.js";
+import nodemailer from "nodemailer";
 
 // MIDDLEWARES
 // For parsing the urlencoded data of post req body;
@@ -40,12 +41,15 @@ app.post('/contact', async (req, res, next) => {
             message
         };
         let data = new Contact(newData);
+        // Save Contact
         await data.save().then(() => {
             console.log("contact saved to database!");
             res.json(data);
         }).catch((err) => {
             throw new Error(err.message);
         });
+        // Send Email
+        //// to be continued
     } catch (err) {
         next(err);
     };
@@ -61,7 +65,7 @@ app.all("*", (req, res, next) => {
 // ERROR HANDLING MIDDLEWARE
 app.use((err, req, res, next) => {
     res.json({ "error": err.message, "status": err.status || 400 });
-    console.log(err.message);
+    console.log(err);
     // res.status(err.status || 500).send(err.message || "something went wrong!");
 });
 
