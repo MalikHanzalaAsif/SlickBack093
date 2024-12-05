@@ -1,0 +1,29 @@
+#userReviews{
+    background: linear-gradient(to right, #dfc4db, #c3f6f3);
+    height: 80vh;
+}
+
+@media (max-width: 850px) {
+    #userReviews{
+        flex-direction: column;
+    }
+    .reviewImageBox{
+        width: 60vw;
+    }
+}
+
+.reviewImageBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Adjust based on your layout */
+    height: 500px; /* Set a height you find suitable */
+    overflow: hidden; /* Hide anything overflowing the container */
+  }
+  
+  .reviewImage {
+    max-width: 100%; /* Scale down to fit width */
+    max-height: 100%; /* Scale down to fit height */
+    object-fit: contain; /* Ensures the image maintains its aspect ratio */
+  }
+  

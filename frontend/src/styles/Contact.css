@@ -1,0 +1,9 @@
+#contact{
+    background: linear-gradient(to right, #dfc4db, #c3f6f3)
+}
+
+@media (max-width: 1024px){
+    #contactImage{
+        display: none;
+    }
+}

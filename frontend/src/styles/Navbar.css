@@ -1,0 +1,111 @@
+/* Basic navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(to right, #dfc4db, #c3f6f3);
+  }
+  .translate-y-10{
+   background: linear-gradient(to right, #dfc4db, #c3f6f3);
+  }
+  #hamburgerList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @media(min-width: 1024px){
+    #hamburgerList{
+      flex-direction: row;
+    }
+  }
+  nav{
+    background: linear-gradient(to right, #dfc4db, #c3f6f3);
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+    width: 100vw;
+  }
+  .navbar-logo a {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+  
+  /* Navbar links styling */
+  .navbar-links ul {
+    display: flex;
+    gap: 2rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-links a:hover {
+    color: #ff5722;
+  }
+  
+  /* Hamburger Menu styling */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+  }
+  
+  .hamburger.open .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .hamburger.open .line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.open .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+      width: 100%;
+      text-align: center;
+      background-color: #333;
+      position: absolute;
+      /* top: 60px; */
+      left: 0;
+    }
+  
+    .navbar-links.open {
+      display: block;
+    }
+  
+    .navbar-links ul {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  }
+  
+.active-link{
+  color:#b42c03;
+};

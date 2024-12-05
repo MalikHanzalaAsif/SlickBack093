@@ -1,0 +1,51 @@
+#heartIcon{
+    position: relative;
+    left: 90%;
+}
+
+.item{
+    transition: transform 0.3s ease;
+}
+
+.item:hover{
+    transform: translateY(-10px)
+}
+
+.showMoreButton {
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: black;
+    transition: all 1000ms;
+    position: relative;
+    overflow: hidden;
+    outline: 2px solid black;
+  }
+  
+  .showMoreButton:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+    outline: 2px solid #b91c1c;
+    box-shadow: 4px 5px 17px -4px #b91c1c;
+  }
+  
+  .showMoreButton::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #b91c1c;
+    transform: skewX(45deg);
+    z-index: -1;
+    transition: width 1000ms;
+  }
+  
+  .showMoreButton:hover::before {
+    width: 250%;
+  }

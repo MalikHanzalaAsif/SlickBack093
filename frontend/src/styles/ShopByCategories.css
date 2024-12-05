@@ -1,0 +1,21 @@
+@media (min-width: 550px) {
+  .shopScrollButton {
+    display: none;
+  }
+}
+
+#shopByCategoriesCardText {
+  border-radius: 6px;
+  background: #e0e0e0;
+  padding: 4px;
+  color: black;
+  text-align: center;
+  font-size: small;
+}
+.shopByCategoriesCard{
+  transition: scale 0.3s ease;
+}
+
+.shopByCategoriesCard:hover{
+  scale: 0.97;
+}

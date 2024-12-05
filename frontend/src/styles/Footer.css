@@ -1,0 +1,9 @@
+@media (max-width: 550px){
+    #upperFooter{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;  /* Centers vertically */
+        align-items: center;      /* Centers horizontally */
+        text-align: center;
+    };
+};
