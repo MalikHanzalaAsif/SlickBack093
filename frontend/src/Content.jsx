@@ -9,7 +9,7 @@ import HashTags from "./HashTags.jsx"
 
 export default function Content() {
     return(
-        <main style={{flex: "1"}}>
+        <>
             <Home />
             <Categories />
             <Items items={items} />
@@ -17,6 +17,6 @@ export default function Content() {
             <ShopByCategories />
             <About />
             <HashTags />
-        </main>
+        </>
     );
 };
