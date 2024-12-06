@@ -102,7 +102,7 @@ const Contact = () => {
                             value={formData.email}
                         />
                         <PhoneInput
-                            className="ml-2"
+                            className="ml-2 m-2"
                             value={formData.number}
                             onChange={handlePhoneChange} // Use custom handler for PhoneInput
                             inputStyle={{
