@@ -4,6 +4,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import { Collapse } from "@mui/material";
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 const Contact = () => {
     let fetchUrl = "http://localhost:8080";
@@ -22,6 +24,9 @@ const Contact = () => {
             ...prevFormData,
             [e.target.name]: e.target.value
         }));
+    };
+    const handlePhoneChange = (value) => {
+        setFormData((prev) => ({ ...prev, number: value }));
     };
 
     async function handleSubmit(e) {
@@ -75,50 +80,56 @@ const Contact = () => {
                 </Collapse>
 
                 <section className='w-full h-full lg:flex lg:justify-around items-center pb-8'>
-                    <form action="" id="contactForm" className='flex lg:w-2/5 flex-col' onSubmit={handleSubmit}>
+                    <form action="" id="contactForm" className="flex lg:w-2/5 flex-col" onSubmit={handleSubmit}>
                         <TextField
                             label="Full Name"
                             variant="outlined"
-                            className='contactFormInputs m-2'
+                            className="contactFormInputs m-2"
                             required
-                            name='name'
+                            name="name"
                             onChange={handleChange}
-                            type='text'
+                            type="text"
                             value={formData.name}
                         />
                         <TextField
                             label="Email Address"
                             variant="outlined"
-                            className='contactFormInputs m-2'
+                            className="contactFormInputs m-2"
                             required
-                            name='email'
+                            name="email"
                             onChange={handleChange}
-                            type='email'
+                            type="email"
                             value={formData.email}
                         />
-                        <TextField
-                            label="Contact Number"
-                            variant="outlined"
-                            className='contactFormInputs m-2'
-                            required
-                            name='number'
-                            onChange={handleChange}
-                            type='number'
+                        <PhoneInput
+                            className="ml-2"
                             value={formData.number}
-                            placeholder='please add your country code!'
+                            onChange={handlePhoneChange} // Use custom handler for PhoneInput
+                            inputStyle={{
+                                width: '97%',
+                                padding: '10px',
+                                fontSize: '16px',
+                                paddingLeft: "40px",
+                                backgroundColor: "transparent",
+                                outline: "1px solid gray",
+                                height: "50px"
+                            }}
+                            placeholder="Enter your phone number"
+                            enableSearch
+                            name="number"
                         />
                         <TextField
                             label="Message"
                             multiline
                             maxRows={4}
-                            className='contactFormInputs m-2'
+                            className="contactFormInputs m-2"
                             required
                             onChange={handleChange}
-                            name='message'
+                            name="message"
                             value={formData.message}
                         />
-                        <Button variant="contained" size="large" className='contactFormInputs m-2' type='submit'>
-                            {(isLoading ? "Submitting..." : "Submit")}
+                        <Button variant="contained" size="large" className="contactFormInputs m-2" type="submit">
+                            {isLoading ? 'Submitting...' : 'Submit'}
                         </Button>
                     </form>
                     <div id="contactImage">
