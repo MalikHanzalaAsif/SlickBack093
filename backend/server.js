@@ -49,7 +49,29 @@ app.post('/contact', async (req, res, next) => {
             throw new Error(err.message);
         });
         // Send Email
-        //// to be continued
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+                user: "phantompubgm613@gmail.com",
+                pass: "batz xhng jfpi okef",
+            },
+        });
+
+        const mailOptions = {
+            from: "phantompubgm613@gmail.com",
+            to: "malikhanzalaasif@gmail.com",
+            subject: "New Contact Form Submission on SlickBack",
+            text: `You received a new message from ${name} (${email}): ${message} Contact: ${number}`,
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+              console.log("Error sending email:", error);
+            } else {
+              console.log("Email sent successfully:", info.response);
+            }
+          });
+          
     } catch (err) {
         next(err);
     };

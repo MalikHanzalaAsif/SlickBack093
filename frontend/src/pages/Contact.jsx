@@ -105,6 +105,7 @@ const Contact = () => {
                             onChange={handleChange}
                             type='number'
                             value={formData.number}
+                            placeholder='please add your country code!'
                         />
                         <TextField
                             label="Message"
