@@ -3,7 +3,7 @@ import './styles/Button.css'
 export default function Button() {
   return (
     <div class="btn-conteiner mr-[50%] m-8 ml-[-22%] sm:ml-[-2%] md:ml-[-5%] lg:ml-[-0%]">
-      <a class="btn-content hover:text-white" href="#">
+      <a class="btn-content hover:text-white" href="#items">
         <span class="btn-title whitespace-nowrap">Explore The Collection</span>
         <span class="icon-arrow">
           <svg

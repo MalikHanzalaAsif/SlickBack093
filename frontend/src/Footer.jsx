@@ -1,5 +1,6 @@
 import TextField from '@mui/material/TextField';
 import "./styles/Footer.css";
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -23,26 +24,28 @@ export default function Footer() {
         </div>
         <div id="box2" className='mb-16 mt-8'>
           <h1 className="text-xl mb-4">USEFUL LINKS</h1>
-          <a href='#' className="mb-4 block cursor-pointer">HOME</a>
-          <a href='#' className="mb-4 block cursor-pointer">ABOUT</a>
-          <a href='#' className="mb-4 cursor-pointer block">SHOP</a>
-          <a href='#' className="mb-4 block cursor-pointer">CATEGORIES</a>
-          <a href='#' className="mb-4 block cursor-pointer">CONTACT</a>
+          <Link to='/' className="mb-4 block cursor-pointer">HOME</Link>
+          <Link to='/about' className="mb-4 block cursor-pointer">ABOUT</Link>
+          <Link to='/shop' className="mb-4 cursor-pointer block">SHOP</Link>
+          <Link to='/shop' className="mb-4 block cursor-pointer">CATEGORIES</Link>
+          <Link to='/contact' className="mb-4 block cursor-pointer">CONTACT</Link>
         </div>
         <div id="box3" className='mb-16 mt-8'>
           <h1 className="text-xl mb-4">PRODUCTS</h1>
-          <a href='#' className="mb-4 block cursor-pointer">ACCESSORIES</a>
-          <a href='#' className="mb-4 block cursor-pointer">CLOTHES</a>
-          <a href='#' className="mb-4 block cursor-pointer">MUGS</a>
-          <a href='#' className="mb-4 block cursor-pointer">CAPS</a>
-          <a href='#' className="mb-4 block cursor-pointer">WATCHES</a>
+          <Link to='/shop' className="mb-4 block cursor-pointer">ACCESSORIES</Link>
+          <Link to='/shop' className="mb-4 block cursor-pointer">CLOTHES</Link>
+          <Link to='/shop' className="mb-4 block cursor-pointer">MUGS</Link>
+          <Link to='/shop' className="mb-4 block cursor-pointer">CAPS</Link>
+          <Link to='/shop' className="mb-4 block cursor-pointer">WATCHES</Link>
         </div>
         <div id="box4" className='mb-16 mt-8'>
           <h1 className="text-xl mb-4">Signup for email</h1>
           <p className="mb-4">Enter your email address for daily updates</p>
-          <form action="" className="mb-4">
-            <input type="email" placeholder='enter your email' required className='h-6' />
-            <button className='bg-slate-800 p-1.5 rounded-md ml-2'>Subscribe</button>
+          <form action="" className="mb-4" onSubmit={(e) => e.preventDefault()}>
+            <input type="email" placeholder='enter your email' required className='h-6 p-2 text-black' />
+            <Link to="/contact">
+              <button className='bg-slate-800 p-1.5 rounded-md ml-2'>Subscribe</button>
+            </Link>
           </form>
         </div>
       </div>

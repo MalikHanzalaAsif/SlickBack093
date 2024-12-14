@@ -129,7 +129,7 @@ const Contact = () => {
                             name="message"
                             value={formData.message}
                         />
-                        <Button variant="contained" size="large" className="contactFormInputs m-2" type="submit">
+                        <Button style={{backgroundColor: "#ad1700"}} variant="contained" size="large" className="contactFormInputs m-2" type="submit">
                             {isLoading ? 'Submitting...' : 'Submit'}
                         </Button>
                     </form>

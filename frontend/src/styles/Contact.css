@@ -7,3 +7,8 @@
         display: none;
     }
 }
+@media (width < 1024px){
+    #contactForm{
+        margin-top: 10%;
+    }
+}

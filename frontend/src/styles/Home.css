@@ -33,3 +33,22 @@
 #home{
     background: linear-gradient(to right, #dfc4db, #c3f6f3);
 }
+
+#homeTextBox{
+    background: linear-gradient(to right, #b10101, #6d0101);
+    left: 17%;
+    bottom: 32%;
+}
+
+@media(width <= 1024px) {
+    #homeTextBox{
+        left: 42%;
+        bottom: 35%;
+    }
+}
+@media(width <= 350px) {
+    #homeTextBox{
+        left: 42%;
+        bottom: 40%;
+    }
+}

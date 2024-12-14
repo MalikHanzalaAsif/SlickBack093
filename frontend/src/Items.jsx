@@ -4,6 +4,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useState } from "react";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 export default function Items({ items }) {
   // Initialize state for each item's "liked" status
@@ -27,46 +28,59 @@ export default function Items({ items }) {
       <div id="itemCards" className="flex w-full flex-wrap justify-center">
         {items.map((item, index) => {
           return (
-            <div
-              key={index}
-              className="item m-4 flex flex-col w-full max-w-72 justify-center p-4 cursor-pointer"
-            >
-              <div className="itemImage flex flex-col bg-gray-100 p-4 mb-2 max-w-96">
-                {likedItems[index] ? (
-                  <FavoriteIcon
-                    className=""
-                    id="heartIcon"
-                    onClick={() => changeLiking(index)} // Pass the index to toggle the right item
-                  />
-                ) : (
-                  <FavoriteBorderIcon
-                    className=""
-                    id="heartIcon"
-                    onClick={() => changeLiking(index)} // Pass the index to toggle the right item
-                  />
-                )}
+            <Link to="/contact">
+              <div
+                key={index}
+                className="item m-4 flex flex-col w-full max-w-72 justify-center p-4 cursor-pointer hover:text-black"
+              >
+                <div className="itemImage flex flex-col bg-gray-100 p-4 mb-2 max-w-96">
+                  {likedItems[index] ? (
+                    <FavoriteIcon
+                      className=""
+                      id="heartIcon"
+                      onClick={(e) => {
+                        e.preventDefault(); // Prevent default Link behavior
+                        e.stopPropagation(); // Stop event from propagating to Link
+                        changeLiking(index); // Toggle the like state
+                      }}
+                    />
+                  ) : (
+                    <FavoriteBorderIcon
+                      className=""
+                      id="heartIcon"
+                      onClick={(e) => {
+                        e.preventDefault(); // Prevent default Link behavior
+                        e.stopPropagation(); // Stop event from propagating to Link
+                        changeLiking(index); // Toggle the like state
+                      }}
+                    />
+                  )}
 
-                <img
-                  src={item.image}
-                  alt="item image"
-                  className="h-60 max-w-56"
-                />
-              </div>
-              <div className="itemTextBox flex">
-                <div className="itemText">
-                  <p className="text-sm m-2 ml-0">{item.title}</p>
-                  <b className="m-2 ml-0">${item.price}</b>
+
+                  <img
+                    src={item.image}
+                    alt="item image"
+                    className="h-60 max-w-56"
+                  />
                 </div>
-                <div className="arrowIcon m-2">
-                  <AddShoppingCartIcon />
+                <div className="itemTextBox flex">
+                  <div className="itemText">
+                    <p className="text-sm m-2 ml-0">{item.title}</p>
+                    <b className="m-2 ml-0">${item.price}</b>
+                  </div>
+                  <div className="arrowIcon m-2">
+                    <AddShoppingCartIcon />
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
       <div className="itemsButton flex justify-center">
-        <button className="showMoreButton mb-4">Show More</button>
+        <Link to="/shop">
+          <button className="showMoreButton mb-4">Show More</button>
+        </Link>
       </div>
     </div>
   );

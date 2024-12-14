@@ -27,3 +27,30 @@
     object-fit: contain; /* Ensures the image maintains its aspect ratio */
   }
   
+/* Smooth transition animations */
+.reviewContent,
+.reviewImageBox {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Slide-out animations */
+.slide-out-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.slide-out-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Slide-in animations */
+.slide-in-left {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.slide-in-right {
+  transform: translateX(0%);
+  opacity: 1;
+}

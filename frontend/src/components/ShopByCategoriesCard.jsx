@@ -2,10 +2,12 @@ import Card from "@mui/joy/Card";
 import CardCover from "@mui/joy/CardCover";
 import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
+import { Link } from "react-router-dom";
 
 export default function ShopByCategoriesCard({src,name}) {
   
     return(
+      <Link to="/shop">
         <Card component="li" sx={{ minWidth: 200,}} className="shopByCategoriesCard">
         <CardCover>
           <img
@@ -24,5 +26,6 @@ export default function ShopByCategoriesCard({src,name}) {
           </Typography>
         </CardContent>
       </Card>
+      </Link>
     );
 };

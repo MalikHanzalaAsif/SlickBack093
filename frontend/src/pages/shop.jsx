@@ -52,7 +52,7 @@ const Shop = () => {
     };
 
     const categories = [
-        { id: 'shopTshirts', title: 'TShirts', ref: tshirtsRef, type: 'tshirt' },
+        { id: 'shopTshirts', title: 'TShirts', ref: tshirtsRef, type: 'shirt' },
         { id: 'shopTrousers', title: 'Trousers', ref: trousersRef, type: 'trouser' },
         { id: 'shopHoodies', title: 'Hoodies', ref: hoodiesRef, type: 'hoodie' },
         { id: 'shopAccessories', title: 'Accessories', ref: accessoriesRef, type: 'accessories' },
@@ -60,22 +60,22 @@ const Shop = () => {
 
     return (
         <section id="shop" className="pt-32">
-            <h1 className="shopHeading mt-8 text-5xl font-semibold text-center">Shop By Categories</h1>
+            <h1 className="shopHeadingMain mt-8 text-5xl font-semibold text-center mb-16">Shop By Categories</h1>
 
             {categories.map(({ id, title, ref, type }) => (
                 <div id={id} className="pb-32" key={id}>
-                    <h2 className="shopHeading text-6xl mb-8 p-2 text-center text-red-500">{title}</h2>
+                    <h2 className="shopHeading text-6xl p-3 text-center bg-red-700 text-white w-fit mx-auto mb-8">{title}</h2>
                     <p className="text-center"><i className="text-lg font-semibold font-mono">TOP PICKS</i></p>
                     <div className="relative">
                         <button
                             onClick={() => scroll(ref, 'left')}
-                            className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-red-500 text-white p-2 rounded-full z-10"
+                            className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-red-700 text-white p-2 rounded-md z-10"
                         >
                             ◀
                         </button>
                         <button
                             onClick={() => scroll(ref, 'right')}
-                            className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-red-500 text-white p-2 rounded-full z-10"
+                            className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-red-700 text-white p-2 rounded-md z-10"
                         >
                             ▶
                         </button>
@@ -96,7 +96,7 @@ const Shop = () => {
                                                     event.stopPropagation();
                                                     toggleLike(type, index);
                                                 }}
-                                                className="absolute top-2 right-2 bg-white rounded-full p-1"
+                                                className="absolute top-2 right-2 rounded-full p-1"
                                             >
                                                 {likedItems[`${type}-${index}`] ? (
                                                     <FavoriteIcon className="text-red-500" />
@@ -105,7 +105,7 @@ const Shop = () => {
                                                 )}
                                             </button>
                                             <img
-                                                src={`/img/mockupHoodie1.png`}
+                                                src={`/items/${type}${index + 1}.png`}
                                                 alt={`${title} ${index + 1}`}
                                                 className=""
                                                 loading="lazy"
@@ -139,7 +139,7 @@ const Shop = () => {
                             ))}
                         </div>
                         <div className="flex justify-center items-center mt-6">
-                            <button id="saleBtn" className="">
+                            <button id="saleBtn" className="bg-red-700">
                                 See more in {title}
                             </button>
                         </div>
