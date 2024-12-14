@@ -19,6 +19,17 @@
         font-size: 8px;
     }
 }
+
+@media (width <= 400px) {
+    #content{
+        margin-top: -10px;
+    }
+}
+@media (width <= 350px) {
+    #content{
+        margin-top: -20px;
+    }
+}
 #home{
     background: linear-gradient(to right, #dfc4db, #c3f6f3);
 }

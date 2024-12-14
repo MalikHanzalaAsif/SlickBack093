@@ -16,6 +16,10 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
+  const handleCloseMenu = () => {
+    setIsOpen(false);
+  };
+
   // Close menu if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -60,29 +64,33 @@ export default function Navbar() {
         >
           <li className="m-2 lg:m-0 cursor-pointer">
             <NavLink
+            onClick={handleCloseMenu}
               to="/"
               className={({isActive}) => `${isActive ? "active-link" : ""} flex items-center text-gray-800 hover:text-red-700 transition-colors`}            >
               <HomeIcon className="mr-2" /> Home
             </NavLink>
           </li>
           <li className="m-2 lg:m-0 cursor-pointer">
-            <a
-              href="#about"
-              className="flex items-center text-gray-800 hover:text-red-700 transition-colors"
+            <NavLink
+            onClick={handleCloseMenu}
+              to="/about"
+              className={({isActive}) => `${isActive ? "active-link" : ""} flex items-center text-gray-800 hover:text-red-700 transition-colors`}
             >
               <InfoIcon className="mr-2" /> About
-            </a>
-          </li>
-          <li className="m-2 lg:m-0 cursor-pointer">
-            <a
-              href="#categories"
-              className="flex items-center text-gray-800 hover:text-red-700 transition-colors"
-            >
-              <ShoppingCartIcon className="mr-2" /> Shop
-            </a>
+            </NavLink>
           </li>
           <li className="m-2 lg:m-0 cursor-pointer">
             <NavLink
+            onClick={handleCloseMenu}
+              to="/shop"
+              className={({isActive}) => `${isActive ? "active-link" : ""} flex items-center text-gray-800 hover:text-red-700 transition-colors`}
+            >
+              <ShoppingCartIcon className="mr-2" /> Shop
+            </NavLink>
+          </li>
+          <li className="m-2 lg:m-0 cursor-pointer">
+            <NavLink
+            onClick={handleCloseMenu}
               to="/contact"
               className={({isActive}) => `${isActive ? "active-link" : ""} flex items-center text-gray-800 hover:text-red-700 transition-colors`}
             >

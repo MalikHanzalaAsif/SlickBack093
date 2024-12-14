@@ -54,10 +54,11 @@ const Contact = () => {
                     message: ""
                 });
             }
-            alertRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+            alertRef?.current.scrollIntoView({ behavior: "smooth", block: "center" });
         } catch (error) {
             console.error("Form submission error:", error);
             setAlertMsg({ severity: "error", text: "Something went wrong. Please try again." });
+            alertRef?.current.scrollIntoView({ behavior: "smooth", block: "center" });
         } finally {
             setIsLoading(false);
         }

@@ -1,0 +1,15 @@
+#aboutUs{
+    background: linear-gradient(to right, #dfc4db, #c3f6f3);
+}
+
+@media(width <= 1024px) {
+    .aboutUsMainContent{
+        flex-direction: column-reverse;
+    }
+}
+
+@media(width <= 550px) {
+    #aboutUs{
+        margin-top: 0px;
+    }
+}

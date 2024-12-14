@@ -7,8 +7,8 @@ export default function Footer() {
       <div id="upperFooter" className="text-xs flex justify-around flex-wrap">
         <div id="box1" className='mb-16 mt-8'>
           <img src="/img/Logo mockup.png" alt="website logo" className="h-20 mb-4" />
-          <a href='#' className='mb-4 block'>some text will be written here</a>
-          <a href='#' className='mb-4 block'>some text will be written here</a>
+          <a href='#' className='mb-4 block'>Privacy Policy</a>
+          <a href='#' className='mb-4 block'>Disclaimer</a>
           <ul className="flex mb-4">
             <li>
               <a href="#"><img src="/img/fb.png" alt="facebook icon" className="h-6 cursor-pointer" /></a>
@@ -22,23 +22,24 @@ export default function Footer() {
           </ul>
         </div>
         <div id="box2" className='mb-16 mt-8'>
-          <h1 className="text-xl mb-4">Help</h1>
-          <a href='#' className="mb-4 block cursor-pointer">demo text this</a>
-          <a href='#' className="mb-4 block cursor-pointer">demo text this</a>
-          <a href='#' className="mb-4 cursor-pointer block">demo text this</a>
-          <a href='#' className="mb-4 block cursor-pointer">demo text this</a>
-          <a href='#' className="mb-4 block cursor-pointer">demo text this</a>
-          <a href='#' className="mb-4 block cursor-pointer">demo text this</a>
+          <h1 className="text-xl mb-4">USEFUL LINKS</h1>
+          <a href='#' className="mb-4 block cursor-pointer">HOME</a>
+          <a href='#' className="mb-4 block cursor-pointer">ABOUT</a>
+          <a href='#' className="mb-4 cursor-pointer block">SHOP</a>
+          <a href='#' className="mb-4 block cursor-pointer">CATEGORIES</a>
+          <a href='#' className="mb-4 block cursor-pointer">CONTACT</a>
         </div>
         <div id="box3" className='mb-16 mt-8'>
-          <h1 className="text-xl mb-4">About</h1>
-          <a href='#' className="mb-4 block cursor-pointer">demo text this</a>
-          <a href='#' className="mb-4 block cursor-pointer">demo text this</a>
-          <a href='#' className="mb-4 block cursor-pointer">demo text this</a>
+          <h1 className="text-xl mb-4">PRODUCTS</h1>
+          <a href='#' className="mb-4 block cursor-pointer">ACCESSORIES</a>
+          <a href='#' className="mb-4 block cursor-pointer">CLOTHES</a>
+          <a href='#' className="mb-4 block cursor-pointer">MUGS</a>
+          <a href='#' className="mb-4 block cursor-pointer">CAPS</a>
+          <a href='#' className="mb-4 block cursor-pointer">WATCHES</a>
         </div>
         <div id="box4" className='mb-16 mt-8'>
           <h1 className="text-xl mb-4">Signup for email</h1>
-          <p className="mb-4">this is a basic demo text for signup</p>
+          <p className="mb-4">Enter your email address for daily updates</p>
           <form action="" className="mb-4">
             <input type="email" placeholder='enter your email' required className='h-6' />
             <button className='bg-slate-800 p-1.5 rounded-md ml-2'>Subscribe</button>

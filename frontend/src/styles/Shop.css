@@ -1,0 +1,40 @@
+/* Hide scrollbar but keep scroll functionality */
+.hide-scrollbar {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.shopImageDiv{
+    transition: 0.3s ease-in-out;
+}
+
+.shopImageDiv:hover{
+    transform: translateY(-10px);
+}
+
+#shop{
+    background: linear-gradient(to right, #dfc4db, #c3f6f3);
+}
+
+#saleBtn {
+    font-size: 17px;
+    padding: 0.5em 2em;
+    border: transparent;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    background: #DE2104;
+    color: white;
+    border-radius: 4px;
+   }
+   
+   #saleBtn:hover {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, #DE2104 0%, #f7553d 100%);
+   }
+   
+   #saleBtn:active {
+    transform: translate(0em, 0.2em);
+   }

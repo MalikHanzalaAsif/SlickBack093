@@ -7,7 +7,7 @@ const Layout = () => {
     return (
          <div id="app" style={{ height: "100%", display: 'flex', flexDirection: "column" }}>
             <Navbar />
-            <main style={{flex: "1"}}>
+            <main id='content' style={{flex: "1"}}>
             <Outlet />
             </main>
             <Footer />

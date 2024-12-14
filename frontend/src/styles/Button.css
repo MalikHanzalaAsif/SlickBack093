@@ -5,13 +5,13 @@
     --color-background: #b91c1c;
     --color-outline: #ff145b80;
     --color-shadow: #00000080;
-    font-size: 14px;
+    font-size: 1rem;
   }
   
   .btn-content {
     display: flex;
     align-items: center;
-    padding: 5px 20px;
+    padding: 0.3rem 1.2rem;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -39,12 +39,12 @@
   
   .btn-content:hover .icon-arrow {
     transition: 0.5s;
-    margin-right: 25px;
+    margin-right: 1.7rem;
   }
   
   .icon-arrow {
-    width: 20px;
-    margin-left: 15px;
+    width: 1rem;
+    margin-left: 1rem;
     position: relative;
     top: 6%;
   }

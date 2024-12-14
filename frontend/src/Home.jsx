@@ -4,7 +4,7 @@ import Marquee from "./Marquee.jsx";
 
 export default function Home() {
   return (
-    <section id="home" className="flex flex-col h-screen justify-between xl:text-9xl">
+    <section id="home" className="flex flex-col h-screen justify-center xl:text-9xl">
       {/* Main Content */}
       <div className="flex items-center justify-evenly flex-grow">
         <div id="homeTextBox">
