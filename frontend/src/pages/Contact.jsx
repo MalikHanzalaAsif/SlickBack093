@@ -68,13 +68,13 @@ const Contact = () => {
         <>
             <div className='pt-[70px] h-full mb-32' id='contact'>
                 <h1 className='text-center text-7xl font-semibold mb-2'>Contact Us</h1>
-                <p className='text-center text-md font-mono'>Please ensure that the information you provided is correct.</p>
+                <p className='text-center text-md font-mono mb-4'>Please ensure that the information you provided is correct.</p>
                 <Collapse in={!!alertMsg} ref={alertRef}>
                     <Alert
                         variant='filled'
                         severity={alertMsg?.severity}
                         onClose={() => setAlertMsg(null)}
-                        className="z-100 w-2/5 mx-auto mt-8"
+                        className="z-100 w-5/5 mx-auto md:w-4/5 lg:w-3/5"
                     >
                         {alertMsg?.text}
                     </Alert>
