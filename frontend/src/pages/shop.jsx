@@ -14,6 +14,7 @@ const Shop = () => {
     const tshirtsRef = useRef(null);
     const trousersRef = useRef(null);
     const hoodiesRef = useRef(null);
+    const accessoriesRef = useRef(null);
 
     const scroll = (ref, direction) => {
         if (ref.current) {
@@ -54,6 +55,7 @@ const Shop = () => {
         { id: 'shopTshirts', title: 'TShirts', ref: tshirtsRef, type: 'tshirt' },
         { id: 'shopTrousers', title: 'Trousers', ref: trousersRef, type: 'trouser' },
         { id: 'shopHoodies', title: 'Hoodies', ref: hoodiesRef, type: 'hoodie' },
+        { id: 'shopAccessories', title: 'Accessories', ref: accessoriesRef, type: 'accessories' },
     ];
 
     return (
