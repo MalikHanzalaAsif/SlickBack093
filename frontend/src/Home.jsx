@@ -14,7 +14,7 @@ export default function Home() {
             <h2 className="text-4xl mb-2">THE WEATHER</h2>
             <h2 className="text-4xl mb-2">STYLE</h2>
             <a href="#items">
-              <button className="border border-white rounded-sm mt-2 p-2 hover:bg-white hover:text-black">Explore Collection</button>
+              <button className="border border-white rounded-sm mt-2 p-2 hover:bg-white hover:text-black transition duration-300">Explore Collection</button>
             </a>
           </div>
           <img src="/img/man-sitting.png" alt="man sitting" className="-mb-48 -ml-16" />
