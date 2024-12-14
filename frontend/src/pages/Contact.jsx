@@ -108,9 +108,9 @@ const Contact = () => {
                             onChange={handlePhoneChange} // Use custom handler for PhoneInput
                             inputStyle={{
                                 width: '97%',
-                                padding: '10px',
-                                fontSize: '16px',
-                                paddingLeft: "40px",
+                                padding: '0.7rem',
+                                fontSize: '1rem',
+                                paddingLeft: "2.25rem",
                                 backgroundColor: "transparent",
                                 outline: "1px solid gray",
                                 height: "50px"

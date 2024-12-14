@@ -128,7 +128,7 @@ const Shop = () => {
                                                 value={5}
                                                 readOnly
                                                 sx={{
-                                                    "& .MuiRating-iconFilled": { color: "#94cf1d", fontSize: "16px" },
+                                                    "& .MuiRating-iconFilled": { color: "#b42c03", fontSize: "16px" },
                                                     "& .MuiRating-iconEmpty": { color: "lightgray", fontSize: "16px" },
                                                 }}
                                                 className="mt-2"

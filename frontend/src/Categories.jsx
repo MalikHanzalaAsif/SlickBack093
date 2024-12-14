@@ -58,8 +58,8 @@ export default function Categories() {
           </div>
           <div className="categoriesCardText">
             <Link to="/shop">
-              <button class="cta flex justify-center items-center">
-                <span class="hover-underline-animation"> Shop now </span>
+              <button className="cta flex justify-center items-center">
+                <span className="hover-underline-animation"> Shop now </span>
                 <svg
                   id="arrow-horizontal"
                   xmlns="http://www.w3.org/2000/svg"
@@ -88,8 +88,8 @@ export default function Categories() {
           </div>
           <div className="categoriesCardText">
             <Link to="/shop">
-              <button class="cta flex justify-center items-center">
-                <span class="hover-underline-animation"> Shop now </span>
+              <button className="cta flex justify-center items-center">
+                <span className="hover-underline-animation"> Shop now </span>
                 <svg
                   id="arrow-horizontal"
                   xmlns="http://www.w3.org/2000/svg"
@@ -122,8 +122,8 @@ export default function Categories() {
           </div>
           <div className="categoriesCardText">
             <Link to="/shop">
-              <button class="cta flex justify-center items-center">
-                <span class="hover-underline-animation"> Shop now </span>
+              <button className="cta flex justify-center items-center">
+                <span className="hover-underline-animation"> Shop now </span>
                 <svg
                   id="arrow-horizontal"
                   xmlns="http://www.w3.org/2000/svg"
