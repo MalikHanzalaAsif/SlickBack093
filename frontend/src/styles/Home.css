@@ -31,7 +31,7 @@
     }
 }
 #home{
-    background: linear-gradient(to right, #dfc4db, #c3f6f3);
+    background: linear-gradient(to right, #ece3f6, #f8f6df);
 }
 
 #homeTextBox{
@@ -39,6 +39,27 @@
     left: 17%;
     bottom: 32%;
 }
+
+#homeTextImage {
+    position: relative; /* Establishes stacking context */
+}
+
+.homeCircle {
+    position: absolute;
+    background: linear-gradient(to right, #b10101, #6d0101);
+    height: 110%;
+    width: 35vw;
+    z-index: 1;
+    border-radius: 50%;
+    top: 0;
+    left: 13%; 
+}
+
+.homeMainImage {
+    position: relative; /* Stays within the stacking context */
+    z-index: 2; /* Ensure it appears above the circle */
+}
+
 
 @media(width <= 1024px) {
     #homeTextBox{
@@ -50,5 +71,16 @@
     #homeTextBox{
         left: 42%;
         bottom: 40%;
+    }
+}
+
+@media (width < 630px) {
+    #homeTextBox{
+        margin-left: -3rem;
+    }
+}
+@media (width <= 550px) {
+    #homeTextBox{
+        margin-bottom: 6rem;
     }
 }

@@ -4,10 +4,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background: linear-gradient(to right, #dfc4db, #c3f6f3);
+    background: linear-gradient(to right, #ece3f6, #f8f6df);
   }
-  .translate-y-10{
-   background: linear-gradient(to right, #dfc4db, #c3f6f3);
+  .translate-y-10 {
+    background: linear-gradient(to right, #ece3f6, #f8f6df);
+    display: flex;
+    flex-direction: column; /* Ensures vertical stacking */
+    align-items: center; /* Centers horizontally */
+    justify-content: center; /* Centers vertically */
   }
   #hamburgerList{
     display: flex;
@@ -21,7 +25,7 @@
     }
   }
   nav{
-    background: linear-gradient(to right, #dfc4db, #c3f6f3);
+    background: linear-gradient(to right, #ece3f6, #f8f6df);
     position: fixed;
     top: 0px;
     z-index: 1000;

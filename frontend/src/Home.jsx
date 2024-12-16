@@ -9,10 +9,10 @@ export default function Home() {
       {/* Main Content */}
       <div className="flex items-center justify-evenly flex-grow relative bottom-0">
         <div>
-          <div id="homeTextBox" className=" text-white absolute p-6 rounded-md">
+          <div id="homeTextBox" className=" text-white absolute p-4 rounded-md shadow-md shadow-black">
             <p className="text-sm mb-4">NEW COLLECTION</p>
-            <h2 className="text-4xl mb-2">THE WEATHER</h2>
-            <h2 className="text-4xl mb-2">STYLE</h2>
+            <h2 className="text-5xl mb-2">THE WEATHER</h2>
+            <h2 className="text-5xl mb-2">STYLE</h2>
             <a href="#items">
               <button className="border border-white rounded-sm mt-2 p-2 hover:bg-white hover:text-black transition duration-300">Explore Collection</button>
             </a>
@@ -20,7 +20,9 @@ export default function Home() {
           <img src="/img/man-sitting.png" alt="man sitting" className="-mb-48 -ml-16" />
         </div>
         <div id="homeTextImage">
-          <img src="/img/3_men_standing_pic.png" alt="3 mens standing" className="w-[50vw] -mb-12" />
+          <div className="homeCircle shadow-xl shadow-black">
+          </div>
+          <img src="/img/3_men_standing_pic.png" alt="3 mens standing" className="homeMainImage w-[50vw] -mb-12 z-10" />
         </div>
       </div>
 

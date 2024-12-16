@@ -110,7 +110,7 @@ const Contact = () => {
                                 width: '97%',
                                 padding: '0.7rem',
                                 fontSize: '1rem',
-                                paddingLeft: "2.25rem",
+                                paddingLeft: "5.5rem",
                                 backgroundColor: "transparent",
                                 outline: "1px solid gray",
                                 height: "50px"
