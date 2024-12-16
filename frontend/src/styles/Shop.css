@@ -43,5 +43,9 @@
     font-family: "Lobster", serif;
     font-weight: 400;
     font-style: normal;
+    background: linear-gradient(to right, #b10101, #6d0101);
 }
 
+.shopRedBtn{
+    background: linear-gradient(to right, #b10101, #6d0101);
+}

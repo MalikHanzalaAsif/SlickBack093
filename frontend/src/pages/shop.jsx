@@ -64,18 +64,18 @@ const Shop = () => {
 
             {categories.map(({ id, title, ref, type }) => (
                 <div id={id} className="pb-32" key={id}>
-                    <h2 className="shopHeading text-6xl p-3 text-center bg-red-700 text-white w-fit mx-auto mb-8">{title}</h2>
+                    <h2 className="shopHeading text-6xl p-3 text-center text-white w-fit mx-auto mb-8 rounded-md">{title}</h2>
                     <p className="text-center"><i className="text-lg font-semibold font-mono">TOP PICKS</i></p>
                     <div className="relative">
                         <button
                             onClick={() => scroll(ref, 'left')}
-                            className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-red-700 text-white p-2 rounded-md z-10"
+                            className="absolute top-1/2 left-0 transform -translate-y-1/2 shopRedBtn text-white p-2 rounded-md z-10"
                         >
                             ◀
                         </button>
                         <button
                             onClick={() => scroll(ref, 'right')}
-                            className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-red-700 text-white p-2 rounded-md z-10"
+                            className="absolute top-1/2 right-0 transform -translate-y-1/2 shopRedBtn text-white p-2 rounded-md z-10"
                         >
                             ▶
                         </button>
@@ -85,7 +85,7 @@ const Shop = () => {
                             className="shop-scrollable-container flex overflow-x-scroll gap-4 scroll-smooth hide-scrollbar border-y-2 py-8 border shadow-md"
                         >
                             {Array.from({ length: 15 }, (_, index) => (
-                                <Link to={"/order"} key={index}>
+                                <Link to={"/contact"} key={index}>
                                     <div>
                                         <div
                                             className="shopImageDiv w-36 h-56 m-2 p-4 object-cover rounded-md shadow-lg flex-shrink-0 relative flex flex-col justify-center items-center"
