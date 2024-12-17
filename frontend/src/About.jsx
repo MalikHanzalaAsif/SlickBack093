@@ -5,7 +5,7 @@ import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
 export default function About() {
     return(
-        <section id="about" className='flex justify-center items-center text-center flex-wrap'>
+        <section id="about" className='flex justify-center items-center text-center flex-wrap' data-aos="fade-up">
             <div className="box m-8 p-4 border border-black rounded-md">
                 <SupportAgentIcon className='mb-6'/>
                 <p className='font-semibold text-sm mb-2'>Premium Support</p>

@@ -32,6 +32,7 @@ export default function Items({ items }) {
               <div
                 key={index}
                 className="item m-4 flex flex-col w-full max-w-72 justify-center p-4 cursor-pointer hover:text-black"
+                data-aos="fade-up"
               >
                 <div className="itemImage flex flex-col bg-gray-100 p-4 mb-2 max-w-96">
                   {likedItems[index] ? (

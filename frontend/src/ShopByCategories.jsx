@@ -17,7 +17,7 @@ export default function ShopByCategories() {
   return (
     <>
       <h1 className="text-3xl mt-4 text-center">Shop by Categories</h1>
-      <section id="shopByCategories" className="my-12 relative">
+      <section id="shopByCategories" className="my-12 relative" data-aos="fade-up">
         <button
           className="shopScrollButton absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full z-50"
           onClick={scrollLeft}

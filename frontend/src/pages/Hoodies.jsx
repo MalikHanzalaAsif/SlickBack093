@@ -9,22 +9,26 @@ import BackToTopButton from '../components/BackToTopButton';
 import { Modal, Box, IconButton, Typography } from "@mui/material";
 import Button from '@mui/material/Button';
 
-const Shop = () => {
-    const [likedItems, setLikedItems] = useState(
-        categories.map(() => false) // Initialize all items as not liked
-    );
+const Hoodies = () => {
+    
+    const hoodiesArray = categories.filter((item) => item.category === "hoodie");
+
     const [openModal, setOpenModal] = useState(false);
-    const [selectedItem, setSelectedItem] = useState(null);
+        const [selectedItem, setSelectedItem] = useState(null);
+    
+    
+        const handleOpenModal = (item) => {
+            setSelectedItem(item);
+            setOpenModal(true);
+        };
+    
+        const handleCloseModal = () => {
+            setOpenModal(false);
+        };
 
-
-    const handleOpenModal = (item) => {
-        setSelectedItem(item);
-        setOpenModal(true);
-    };
-
-    const handleCloseModal = () => {
-        setOpenModal(false);
-    };
+    const [likedItems, setLikedItems] = useState(
+        hoodiesArray.map(() => false) // Initialize all items as not liked
+    );
 
     // Function to handle like toggle for an individual item
     function changeLiking(index) {
@@ -35,15 +39,15 @@ const Shop = () => {
 
     return (
         <>
-            <NavigationCategoriesButtons />
-            <BackToTopButton />
+                <NavigationCategoriesButtons />
+                <BackToTopButton />
             <section id="shop" className="pt-16">
                 <h1 className="shopHeadingMain text-5xl font-semibold text-center mb-16">
                     Shop By Categories
                 </h1>
-                <h2 className="text-4xl font-semibold text-center mb-16">All Items</h2>
+                <h2 className="text-4xl font-semibold text-center mb-16">Hoodies</h2>
                 <div className="allCategories flex w-full flex-wrap justify-center">
-                    {categories.map((item, index) => (
+                    {hoodiesArray.map((item, index) => (
                         <div
                             key={item.id} // Add a unique key
                             className="allCategoriesCard m-4 flex flex-col w-full max-w-72 justify-center p-4 cursor-pointer hover:text-black"
@@ -83,7 +87,7 @@ const Shop = () => {
                                     <b className="m-2 ml-0">${item.price}</b>
                                 </div>
                                 <div className="arrowIcon m-2 relative left-8">
-                                    <AddShoppingCartIcon />
+                                    <AddShoppingCartIcon/>
                                 </div>
                             </div>
                         </div>
@@ -140,4 +144,4 @@ const Shop = () => {
     );
 };
 
-export default Shop;
+export default Hoodies;

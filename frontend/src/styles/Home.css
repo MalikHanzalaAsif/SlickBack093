@@ -36,8 +36,8 @@
 
 #homeTextBox{
     background: linear-gradient(to right, #b10101, #6d0101);
-    left: 17%;
-    bottom: 32%;
+    left: 30%;
+    bottom: 15%;
 }
 
 #homeTextImage {
@@ -63,7 +63,7 @@
 
 @media(width <= 1024px) {
     #homeTextBox{
-        left: 42%;
+        left: 32%;
         bottom: 35%;
     }
 }
@@ -74,13 +74,8 @@
     }
 }
 
-@media (width < 630px) {
-    #homeTextBox{
-        margin-left: -3rem;
-    }
-}
 @media (width <= 550px) {
     #homeTextBox{
-        margin-bottom: 6rem;
+        margin-bottom: 4rem;
     }
 }

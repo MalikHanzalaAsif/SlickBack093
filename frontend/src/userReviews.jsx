@@ -64,7 +64,7 @@ export default function UserReviews() {
       id="userReviews"
       className="flex w-full justify-center items-center mt-8"
     >
-      <div className={`reviewContent flex flex-col m-8 ml-24 ${transition}`}>
+      <div className={`reviewContent flex flex-col m-8 ml-24 ${transition}`} data-aos="fade-up">
         <h2 className="font font-semibold text-2xl mb-6">
           {reviews[currentIndex].name}
         </h2>
@@ -83,7 +83,7 @@ export default function UserReviews() {
           />
         </div>
       </div>
-      <div className={`reviewImageBox ${transition}`}>
+      <div className={`reviewImageBox ${transition}`} data-aos="fade-up">
         <img
           src={reviews[currentIndex].image}
           alt="review image"

@@ -9,10 +9,10 @@ import BackToTopButton from '../components/BackToTopButton';
 import { Modal, Box, IconButton, Typography } from "@mui/material";
 import Button from '@mui/material/Button';
 
-const Shop = () => {
-    const [likedItems, setLikedItems] = useState(
-        categories.map(() => false) // Initialize all items as not liked
-    );
+const Accessories = () => {
+
+    const accessoriesArray = categories.filter((item) => item.category === "accessories");
+
     const [openModal, setOpenModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
@@ -25,6 +25,10 @@ const Shop = () => {
     const handleCloseModal = () => {
         setOpenModal(false);
     };
+
+    const [likedItems, setLikedItems] = useState(
+        accessoriesArray.map(() => false) // Initialize all items as not liked
+    );
 
     // Function to handle like toggle for an individual item
     function changeLiking(index) {
@@ -41,9 +45,9 @@ const Shop = () => {
                 <h1 className="shopHeadingMain text-5xl font-semibold text-center mb-16">
                     Shop By Categories
                 </h1>
-                <h2 className="text-4xl font-semibold text-center mb-16">All Items</h2>
+                <h2 className="text-4xl font-semibold text-center mb-16">Accessories</h2>
                 <div className="allCategories flex w-full flex-wrap justify-center">
-                    {categories.map((item, index) => (
+                    {accessoriesArray.map((item, index) => (
                         <div
                             key={item.id} // Add a unique key
                             className="allCategoriesCard m-4 flex flex-col w-full max-w-72 justify-center p-4 cursor-pointer hover:text-black"
@@ -82,7 +86,7 @@ const Shop = () => {
                                     <p className="text-sm m-2 ml-0">{item.title}</p>
                                     <b className="m-2 ml-0">${item.price}</b>
                                 </div>
-                                <div className="arrowIcon m-2 relative left-8">
+                                <div className="arrowIcon m-2 relative left-3">
                                     <AddShoppingCartIcon />
                                 </div>
                             </div>
@@ -140,4 +144,4 @@ const Shop = () => {
     );
 };
 
-export default Shop;
+export default Accessories;

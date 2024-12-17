@@ -1,0 +1,61 @@
+.fixed {
+  position: fixed;
+  bottom: 1.3rem; /* Distance from the bottom */
+  right: 1.3rem; /* Distance from the right */
+  z-index: 1000; /* Ensures the button is above other elements */
+}
+
+.Btn {
+  width: 3.2rem;
+  height: 3.2rem;
+  background: linear-gradient(to right, #b10101, #6d0101);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for visibility */
+  transition: transform 0.2s ease-in-out; /* Smooth scale effect */
+}
+
+.Btn:hover {
+  transform: scale(1.1); /* Slight enlarge on hover */
+}
+
+.arrow path {
+  fill: white;
+}
+
+.text {
+  font-size: 0.7em;
+  width: max-content; /* Ensure the width adjusts to content */
+  max-width: 100px; /* Optional: Limits text width */
+  position: absolute;   
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: -18px; /* Adjust distance from the button */
+  opacity: 0;
+  transition: opacity 0.7s ease; /* Smooth fade-in effect */
+}
+
+.Btn:hover .text {
+  opacity: 1;
+}
+
+.Btn:hover .arrow {
+  animation: slide-in-bottom 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-bottom {
+  0% {
+      transform: translateY(10px);
+      opacity: 0;
+  }
+
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}

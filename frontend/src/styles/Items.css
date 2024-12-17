@@ -3,11 +3,11 @@
     left: 90%;
 }
 
-.item{
+.allCategoriesCard{
     transition: transform 0.3s ease;
 }
 
-.item:hover{
+.allCategoriesCard:hover{
     transform: translateY(-10px)
 }
 

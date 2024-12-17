@@ -20,7 +20,7 @@ export default function Categories() {
   };
 
   return (
-    <section id="categories" className="relative w-full">
+    <section id="categories" className="relative w-full" data-aos="fade-right">
       {/* Scroll Buttons */}
       <button
         onClick={scrollLeft}
