@@ -6,6 +6,7 @@ import UserReviews from "./userReviews";
 import ShopByCategories from "./shopByCategories.jsx";
 import About from "./About.jsx";
 import HashTags from "./HashTags.jsx"
+import BackToTopButton from './components/BackToTopButton';
 
 export default function Content() {
     return(
@@ -17,6 +18,7 @@ export default function Content() {
             <ShopByCategories />
             <About />
             <HashTags />
+            <BackToTopButton />
         </>
     );
 };

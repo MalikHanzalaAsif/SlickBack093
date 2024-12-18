@@ -1,8 +1,8 @@
-.fixed {
+.backToTopBtn {
   position: fixed;
   bottom: 1.3rem; /* Distance from the bottom */
   right: 1.3rem; /* Distance from the right */
-  z-index: 1000; /* Ensures the button is above other elements */
+  z-index: 30; /* Ensures the button is above other elements */
 }
 
 .Btn {
