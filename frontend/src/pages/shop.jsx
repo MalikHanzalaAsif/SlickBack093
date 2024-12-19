@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import "../styles/Shop.css";
 import categories from '../utils/categories';
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";

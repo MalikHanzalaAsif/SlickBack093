@@ -1,29 +1,38 @@
 import React from 'react';
 import { Modal, Box, IconButton, Typography } from "@mui/material";
 import Button from '@mui/material/Button';
-import { useState } from 'react';
+import { useCart } from "./CartContext";
 
 const CardModal = ({ openModal, handleCloseModal, selectedItem }) => {
-  const [cart, setCart] = useState(null)
-
+    const {cart, setCart} = useCart();
  // Update cart when adding a new item
- function updateCart(selectedItem) {
-    const modifiedSelectedItem = {
-      ...selectedItem,
-      quantity: 1,
-      color: "random"
-    };
-
-    // Get current cart from localStorage
-    const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Create a new cart array with the modified item
-    const updatedCart = [...currentCart, modifiedSelectedItem];
-
-    // Update the state and localStorage
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-  }
+    function updateCart(selectedItem) {
+        const modifiedSelectedItem = {
+          ...selectedItem,
+          quantity: 1,
+          color: "random",
+        };
+      
+        // Get current cart from localStorage
+        const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+      
+        // Check if the item already exists in the cart
+        const existingItemIndex = currentCart.findIndex(
+          (item) => item.id === selectedItem.id
+        );
+      
+        if (existingItemIndex > -1) {
+          // Update the quantity of the existing item
+          currentCart[existingItemIndex].quantity += 1;
+        } else {
+          // Add the new item to the cart
+          currentCart.push(modifiedSelectedItem);
+        }
+        
+        setCart(currentCart)
+        localStorage.setItem("cart", JSON.stringify(currentCart));
+      }
+      
 
     return (
         <Modal open={openModal} onClose={handleCloseModal}>
@@ -62,7 +71,10 @@ const CardModal = ({ openModal, handleCloseModal, selectedItem }) => {
                             <Button variant="outlined" color="error" onClick={handleCloseModal} style={{ marginRight: "1rem" }}>
                                 Close
                             </Button>
-                            <Button variant="contained" color="success" onClick={() => updateCart(selectedItem)}>
+                            <Button variant="contained" color="success" onClick={() => {
+                                updateCart(selectedItem);
+                                handleCloseModal();
+                            }}>
                                 Add to Cart
                             </Button>
                         </div>
