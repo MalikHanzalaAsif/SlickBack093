@@ -33,9 +33,10 @@ const CardModal = ({ openModal, handleCloseModal, selectedItem }) => {
         localStorage.setItem("cart", JSON.stringify(currentCart));
       }
       
+      
 
     return (
-        <Modal open={openModal} onClose={handleCloseModal}>
+        <Modal open={openModal} onClose={handleCloseModal} >
             <Box
                 sx={{
                     position: "absolute",
