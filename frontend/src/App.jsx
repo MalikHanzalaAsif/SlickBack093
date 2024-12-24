@@ -17,7 +17,8 @@ import { useEffect, useState } from 'react';
 import Loader from './components/Loader';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isReady, setIsReady] = useState(false);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -25,15 +26,18 @@ function App() {
       once: true,
     });
 
-     const timer = setTimeout(() => setIsLoading(false), 2000);
+    const handleLoad = () => setIsReady(true);
 
-     return () => clearTimeout(timer); 
+    // Add event listener for window load event
+    window.addEventListener('load', handleLoad);
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener('load', handleLoad);
   }, []);
 
-   
   return (
     <>
-      {isLoading ? (
+      {!isReady ? (
         <Loader />
       ) : (
         <Router>
