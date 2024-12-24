@@ -17,16 +17,20 @@ import { useEffect, useState } from 'react';
 import Loader from './components/Loader';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     AOS.init({
       duration: 1000,
       easing: "ease-in-out",
       once: true,
     });
+
+     const timer = setTimeout(() => setIsLoading(false), 2000);
+
+     return () => clearTimeout(timer); 
   }, []);
 
+   
   return (
     <>
       {isLoading ? (
