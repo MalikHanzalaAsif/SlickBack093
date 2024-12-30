@@ -5,27 +5,23 @@ import { useCart } from "./CartContext";
 
 const CardModal = ({ openModal, handleCloseModal, selectedItem }) => {
     const {cart, setCart} = useCart();
- // Update cart when adding a new item
+
     function updateCart(selectedItem) {
         const modifiedSelectedItem = {
           ...selectedItem,
           quantity: 1,
           color: "random",
         };
-      
-        // Get current cart from localStorage
+
         const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
       
-        // Check if the item already exists in the cart
         const existingItemIndex = currentCart.findIndex(
           (item) => item.id === selectedItem.id
         );
       
         if (existingItemIndex > -1) {
-          // Update the quantity of the existing item
           currentCart[existingItemIndex].quantity += 1;
         } else {
-          // Add the new item to the cart
           currentCart.push(modifiedSelectedItem);
         }
         

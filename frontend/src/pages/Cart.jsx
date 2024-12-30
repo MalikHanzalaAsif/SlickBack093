@@ -1,30 +1,35 @@
-'use client'
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useCart } from '../components/CartContext';
+"use client";
+import {
+  Dialog,
+  DialogBackdrop,
+  DialogPanel,
+  DialogTitle,
+} from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+import { useEffect, useState, useMemo } from "react";
+import { useCart } from "../components/CartContext";
+import calculateTotalCartPrice from "../utils/calculateTotalCartPrice";
 
 export default function CartModal({ open, setOpen }) {
+  const { cart, setCart } = useCart();
 
-  const { cart, setCart } = useCart()
-
-  // Load cart from localStorage on initial render
   useEffect(() => {
     try {
       const storedCart = JSON.parse(localStorage.getItem("cart"));
-      setCart(storedCart ? storedCart : []); // Fallback to empty array
+      setCart(storedCart ? storedCart : []);
     } catch (error) {
       console.error("Error in cart localStorage:");
-      setCart([]); // Handle invalid data by resetting the cart
+      setCart([]);
     }
   }, []);
 
-  // Remove item from cart
+  let subTotal = useMemo(() => calculateTotalCartPrice(cart), [cart]);
+
   function removeCartItem(currItem) {
     const filteredCart = cart.filter((cartItem) => cartItem.id !== currItem.id);
-    localStorage.setItem("cart", JSON.stringify(filteredCart)); // Update localStorage
-    setCart(filteredCart); // Update state to re-render UI
+    localStorage.setItem("cart", JSON.stringify(filteredCart));
+    setCart(filteredCart);
   }
 
 
@@ -38,7 +43,6 @@ export default function CartModal({ open, setOpen }) {
       <div className="fixed inset-0 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-
             <DialogPanel
               transition
               className="pointer-events-auto w-screen max-w-md transform transition duration-500 ease-in-out data-[closed]:translate-x-full sm:duration-700"
@@ -47,7 +51,9 @@ export default function CartModal({ open, setOpen }) {
                 <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                   <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                     <div className="flex items-start justify-between">
-                      <DialogTitle className="text-lg font-medium text-gray-900">Shopping cart</DialogTitle>
+                      <DialogTitle className="text-lg font-medium text-gray-900">
+                        Shopping cart
+                      </DialogTitle>
                       <div className="ml-3 flex h-7 items-center">
                         <button
                           type="button"
@@ -63,11 +69,18 @@ export default function CartModal({ open, setOpen }) {
 
                     <div className="mt-8">
                       <div className="flow-root">
-                        <ul role="list" className="-my-6 divide-y divide-gray-200">
+                        <ul
+                          role="list"
+                          className="-my-6 divide-y divide-gray-200"
+                        >
                           {cart.map((item) => (
                             <li key={item.id} className="flex py-6">
                               <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                <img alt={item.description} src={item.image} className="size-full object-cover" />
+                                <img
+                                  alt={item.description}
+                                  src={item.image}
+                                  className="size-full object-cover"
+                                />
                               </div>
 
                               <div className="ml-4 flex flex-1 flex-col">
@@ -78,12 +91,20 @@ export default function CartModal({ open, setOpen }) {
                                     </h3>
                                     <p className="ml-4">${item.price}</p>
                                   </div>
-                                  <p className="mt-1 text-sm text-gray-500">{item.color}</p>
+                                  <p className="mt-1 text-sm text-gray-500">
+                                    {item.color}
+                                  </p>
                                 </div>
                                 <div className="flex flex-1 items-end justify-between text-sm">
-                                  <p className="text-gray-500">Qty {item.quantity}</p>
+                                  <p className="text-gray-500">
+                                    Qty {item.quantity}
+                                  </p>
                                   <div className="flex">
-                                    <button type="button" className="font-medium text-red-700 hover:text-red-700" onClick={() => removeCartItem(item)}>
+                                    <button
+                                      type="button"
+                                      className="font-medium text-red-700 hover:text-red-700"
+                                      onClick={() => removeCartItem(item)}
+                                    >
                                       Remove
                                     </button>
                                   </div>
@@ -99,9 +120,11 @@ export default function CartModal({ open, setOpen }) {
                   <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                     <div className="flex justify-between text-base font-medium text-gray-900">
                       <p>Subtotal</p>
-                      <p>$262.00</p>
+                      <p>${subTotal}</p>
                     </div>
-                    <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                    <p className="mt-0.5 text-sm text-gray-500">
+                      Shipping and taxes calculated at checkout.
+                    </p>
                     <div className="mt-6">
                       <a
                         href="#"
@@ -113,15 +136,13 @@ export default function CartModal({ open, setOpen }) {
                     </div>
                     <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                       <p>
-                        or{' '}
+                        or{" "}
                         <button
                           type="button"
                           onClick={() => setOpen(false)}
                           className="font-medium text-red-700 hover:text-red-700"
                         >
-                          <Link to="/shop">
-                            Continue Shopping
-                          </Link>
+                          <Link to="/shop">Continue Shopping</Link>
                           <span aria-hidden="true">&rarr;</span>
                         </button>
                       </p>
@@ -132,7 +153,9 @@ export default function CartModal({ open, setOpen }) {
                 <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                   <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                     <div className="flex items-start justify-between">
-                      <DialogTitle className="text-lg font-medium text-gray-900">Shopping cart</DialogTitle>
+                      <DialogTitle className="text-lg font-medium text-gray-900">
+                        Shopping cart
+                      </DialogTitle>
                       <div className="ml-3 flex h-7 items-center">
                         <button
                           type="button"
@@ -148,7 +171,9 @@ export default function CartModal({ open, setOpen }) {
 
                     <div className="mt-8 h-full">
                       <div className="flex flex-col justify-center h-60">
-                        <h1 className='text-4xl mb-4 m-auto'>Your Cart is Empty!</h1>
+                        <h1 className="text-4xl mb-4 m-auto">
+                          Your Cart is Empty!
+                        </h1>
                         <div className="mt-6">
                           <Link
                             to="/shop"
@@ -169,4 +194,4 @@ export default function CartModal({ open, setOpen }) {
       </div>
     </Dialog>
   );
-};
+}

@@ -46,7 +46,6 @@ app.post('/contact', async (req, res, next) => {
                    `
         };
 
-        // Send email asynchronously
         const info = await transporter.sendMail(mailOptions);
 
         console.log("Email sent successfully:", info.response);
