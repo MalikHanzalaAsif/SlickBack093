@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState, useMemo } from "react";
 import { useCart } from "../components/CartContext";
 import calculateTotalCartPrice from "../utils/calculateTotalCartPrice";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 export default function CartModal({ open, setOpen }) {
   const { cart, setCart } = useCart();
@@ -31,7 +32,6 @@ export default function CartModal({ open, setOpen }) {
     localStorage.setItem("cart", JSON.stringify(filteredCart));
     setCart(filteredCart);
   }
-
 
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-50">
@@ -125,15 +125,44 @@ export default function CartModal({ open, setOpen }) {
                     <p className="mt-0.5 text-sm text-gray-500">
                       Shipping and taxes calculated at checkout.
                     </p>
-                    <div className="mt-6">
-                      <a
-                        href="#"
-                        className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-red-500 to-red-700 px-6 py-3 text-base font-medium text-white shadow-sm hover:opacity-[0.9]"
-                        onClick={() => setOpen(false)}
-                      >
-                        Checkout
-                      </a>
-                    </div>
+                    <PayPalScriptProvider
+                      options={{ "client-id": "YOUR_CLIENT_ID" }}
+                    >
+                      <div className="mt-6">
+                        <PayPalButtons
+                          createOrder={(data, actions) => {
+                            const totalAmount = items.reduce((sum, item) => sum + (item.price * item.quantity), 0); // Calculate total
+                          
+                            return actions.order.create({
+                              purchase_units: [
+                                {
+                                  amount: {
+                                    value: totalAmount.toFixed(2), // Dynamic total amount
+                                  },
+                                  // items: items.map(item => ({
+                                  //   name: item.name,
+                                  //   quantity: item.quantity,
+                                  //   unit_amount: {
+                                  //     value: item.price.toFixed(2),
+                                  //   },
+                                  // })),
+                                },
+                              ],
+                            });
+                          }}
+                          
+                          onApprove={(data, actions) => {
+                            return actions.order.capture().then((details) => {
+                              alert(
+                                "Transaction completed by " +
+                                  details.payer.name.given_name
+                              );
+                              // Notify your backend here
+                            });
+                          }}
+                        />
+                      </div>
+                    </PayPalScriptProvider>
                     <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                       <p>
                         or{" "}
