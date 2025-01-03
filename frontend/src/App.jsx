@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react';
 import Loader from './components/Loader';
 
 function App() {
-  // const [isReady, setIsReady] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     AOS.init({
@@ -26,20 +26,28 @@ function App() {
       once: true,
     });
 
-    // const handleLoad = () => setIsReady(true);
+    const handleLoad = () => {
+      setIsLoading(false);
+    };
 
-    // // Add event listener for window load event
-    // window.addEventListener('load', handleLoad);
 
-    // // Cleanup event listener on component unmount
-    // return () => window.removeEventListener('load', handleLoad);
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
+
   }, []);
 
   return (
     <>
-      {/* {!isReady ? (
+      {isLoading ? (
         <Loader />
-      ) : ( */}
+      ) : (
         <Router>
           <ScrollOnTop />
           <Routes>
@@ -56,7 +64,7 @@ function App() {
             </Route>
           </Routes>
         </Router>
-      {/* )} */}
+      )}
     </>
   );
 }
