@@ -20,7 +20,7 @@ export default function CartModal({ open, setOpen }) {
       const storedCart = JSON.parse(localStorage.getItem("cart"));
       setCart(storedCart ? storedCart : []);
     } catch (error) {
-      console.error("Error in cart localStorage:");
+      console.error("Error in cart:");
       setCart([]);
     }
   }, []);
@@ -125,7 +125,9 @@ export default function CartModal({ open, setOpen }) {
                     <p className="mt-0.5 text-sm text-gray-500">
                       Shipping and taxes calculated at checkout.
                     </p>
-                    <PayPalScriptProvider
+
+                    {/* PAYPAL BUTTON */}
+                    {/* <PayPalScriptProvider
                       options={{ "client-id": "YOUR_CLIENT_ID" }}
                     >
                       <div className="mt-6">
@@ -162,7 +164,17 @@ export default function CartModal({ open, setOpen }) {
                           }}
                         />
                       </div>
-                    </PayPalScriptProvider>
+                    </PayPalScriptProvider> */}
+
+                    <div className="mt-6">
+                      <a
+                        href="#"
+                        className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-red-500 to-red-700 px-6 py-3 text-base font-medium text-white shadow-sm hover:opacity-[0.9]"
+                        onClick={() => setOpen(false)}
+                      >
+                        Checkout
+                      </a>
+                    </div>
                     <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                       <p>
                         or{" "}
