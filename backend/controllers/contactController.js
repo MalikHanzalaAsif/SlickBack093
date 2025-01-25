@@ -16,10 +16,10 @@ export const sendEmail = async (req, res, next) => {
         });
 
         // Email options
-        const mailOptions = {
+        const ownerMailOptions = {
             from: process.env.FROM_EMAIL,
             to: process.env.TO_EMAIL,
-            subject: "New Order On SlickBack093",
+            subject: "Contact Form Submission on SlickBack093",
             text: `
                    NAME: ${name}
                    EMAIL: ${email}
@@ -27,13 +27,23 @@ export const sendEmail = async (req, res, next) => {
                    CONTACT: ${number}
                    `
         };
+        const userMailOptions = {
+            from: process.env.FROM_EMAIL,
+            to: email,
+            subject: "Contact Form Submitted on SlickBack093",
+            text: `Dear ${name}! We've got your query . We'll get back to you soon. Thanks for reaching out!`
+        };
 
-        const info = await transporter.sendMail(mailOptions);
-
-        console.log("Email sent successfully:", info.response);
-        res.json({ success: "Order placed successfully :)" });
+        // Send email asynchronously
+        const ownerInfo = await transporter.sendMail(ownerMailOptions);
+        console.log("Email sent successfully to owner:", ownerInfo.response);
+        res.json({ success: "Form Submitted Successfully!" });
+        
+        // send email to user
+        const userInfo = await transporter.sendMail(userMailOptions);
+        console.log("Email sent successfully to user:", userInfo.response);
     } catch (err) {
         console.error("Error sending email:", err);
-        next(err);
+        next(err); // Pass the error to the error-handling middleware
     }
 };

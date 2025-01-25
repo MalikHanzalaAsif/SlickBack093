@@ -81,12 +81,12 @@ const Tshirts = () => {
                                     className="h-60 max-w-56"
                                 />
                             </div>
-                            <div className="itemTextBox flex">
+                            <div className="itemTextBox flex justify-between">
                                 <div className="itemText">
                                     <p className="text-sm m-2 ml-0">{item.title}</p>
                                     <b className="m-2 ml-0">${item.price}</b>
                                 </div>
-                                <div className="arrowIcon m-2 relative left-8">
+                                <div className="arrowIcon m-2">
                                     <AddShoppingCartIcon/>
                                 </div>
                             </div>

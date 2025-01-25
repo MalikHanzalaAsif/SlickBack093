@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal, Box, IconButton, Typography } from "@mui/material";
 import Button from '@mui/material/Button';
 import { useCart } from "./CartContext";
+import toastEmitter from './ui/toast';
 
 const CardModal = ({ openModal, handleCloseModal, selectedItem }) => {
     const {cart, setCart} = useCart();
@@ -70,6 +71,10 @@ const CardModal = ({ openModal, handleCloseModal, selectedItem }) => {
                             </Button>
                             <Button variant="contained" color="success" onClick={() => {
                                 updateCart(selectedItem);
+                                toastEmitter({
+                                    title: "Item added to cart!",
+                                    type: "success",
+                                });
                                 handleCloseModal();
                             }}>
                                 Add to Cart

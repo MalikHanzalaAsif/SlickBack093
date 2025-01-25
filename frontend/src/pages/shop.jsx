@@ -44,49 +44,50 @@ const Shop = () => {
                 <div className="allCategories flex w-full flex-wrap justify-center">
                     {categories.map((item, index) => (
                         <div
-                            key={item.id} // Add a unique key
-                            className="allCategoriesCard m-4 flex flex-col w-full max-w-72 justify-center p-4 cursor-pointer hover:text-black"
-                            onClick={() => handleOpenModal(item)} // Open modal on card click
-                            data-aos="fade-up"
-                        >
-                            <div className="itemImage flex flex-col bg-gray-100 p-4 mb-2 max-w-96">
-                                {likedItems[index] ? (
-                                    <FavoriteIcon
-                                        className=""
-                                        id="heartIcon"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            changeLiking(index);
-                                        }}
-                                    />
-                                ) : (
-                                    <FavoriteBorderIcon
-                                        className=""
-                                        id="heartIcon"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            changeLiking(index);
-                                        }}
-                                    />
-                                )}
-                                <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="h-60 max-w-56"
-                                />
-                            </div>
-                            <div className="itemTextBox flex">
-                                <div className="itemText">
-                                    <p className="text-sm m-2 ml-0">{item.title}</p>
-                                    <b className="m-2 ml-0">${item.price}</b>
-                                </div>
-                                <div className="arrowIcon m-2 relative left-8">
-                                    <AddShoppingCartIcon />
-                                </div>
-                            </div>
+                        key={index}
+                        className="item m-4 flex flex-col w-full max-w-72 justify-center p-4 cursor-pointer hover:text-black"
+                        data-aos="fade-up"
+                        onClick={() => handleOpenModal(item)} // Open modal on card click
+                      >
+                        <div className="itemImage flex flex-col bg-gray-100 p-4 mb-2 max-w-96">
+                          {likedItems[index] ? (
+                            <FavoriteIcon
+                              className=""
+                              id="heartIcon"
+                              onClick={(e) => {
+                                e.preventDefault(); // Prevent default Link behavior
+                                e.stopPropagation(); // Stop event from propagating to Link
+                                changeLiking(index); // Toggle the like state
+                              }}
+                            />
+                          ) : (
+                            <FavoriteBorderIcon
+                              className=""
+                              id="heartIcon"
+                              onClick={(e) => {
+                                e.preventDefault(); // Prevent default Link behavior
+                                e.stopPropagation(); // Stop event from propagating to Link
+                                changeLiking(index); // Toggle the like state
+                              }}
+                            />
+                          )}
+        
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="h-60 max-w-56"
+                          />
                         </div>
+                        <div className="itemTextBox flex justify-between">
+                          <div className="itemText">
+                            <p className="text-sm m-2 ml-0">{item.description}</p>
+                            <b className="m-2 ml-0">${item.price}</b>
+                          </div>
+                          <div className="arrowIcon m-2">
+                            <AddShoppingCartIcon />
+                          </div>
+                        </div>
+                      </div>
                     ))}
                 </div>
             </section>
