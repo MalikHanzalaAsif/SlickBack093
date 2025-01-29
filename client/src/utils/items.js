@@ -4,7 +4,7 @@ export default [
         category: "shirt",
         title: "Custom TShirt",
         description: "Great Seasonal TShirt with reasonable price.",
-        price: 99.99,
+        price: 1,
         image: "/img/mockupShirt1.png"
     },
     {

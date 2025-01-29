@@ -10,11 +10,13 @@ import Tshirts from './pages/Tshirts';
 import Trousers from './pages/Trousers';
 import Hoodies from './pages/Hoodies';
 import Accessories from './pages/Accessories';
+import CheckoutForm from './components/CheckoutForm';
 import Cart from './pages/Cart';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from 'react';
 import Loader from './components/Loader';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,22 +50,30 @@ function App() {
       {isLoading ? (
         <Loader />
       ) : (
-        <Router>
-          <ScrollOnTop />
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Content />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/shop" element={<Shop />} />
-              <Route path="/shop/tshirts" element={<Tshirts />} />
-              <Route path="/shop/trousers" element={<Trousers />} />
-              <Route path="/shop/hoodies" element={<Hoodies />} />
-              <Route path="/shop/accessories" element={<Accessories />} />
-              <Route path="/cart" element={<Cart />} />
-            </Route>
-          </Routes>
-        </Router>
+        <PayPalScriptProvider
+          options={{
+            "client-id": import.meta.env.VITE_PAYPAL_SANDBOX_CLIENT_ID,
+            currency: "USD",
+          }}
+        >
+          <Router>
+            <ScrollOnTop />
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Content />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/shop" element={<Shop />} />
+                <Route path="/shop/tshirts" element={<Tshirts />} />
+                <Route path="/shop/trousers" element={<Trousers />} />
+                <Route path="/shop/hoodies" element={<Hoodies />} />
+                <Route path="/shop/accessories" element={<Accessories />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<CheckoutForm />} />
+              </Route>
+            </Routes>
+          </Router>
+        </PayPalScriptProvider>
       )}
     </>
   );

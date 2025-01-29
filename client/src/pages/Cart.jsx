@@ -125,56 +125,15 @@ export default function CartModal({ open, setOpen }) {
                     <p className="mt-0.5 text-sm text-gray-500">
                       Shipping and taxes calculated at checkout.
                     </p>
-
-                    {/* PAYPAL BUTTON */}
-                    {/* <PayPalScriptProvider
-                      options={{ "client-id": "YOUR_CLIENT_ID" }}
-                    >
-                      <div className="mt-6">
-                        <PayPalButtons
-                          createOrder={(data, actions) => {
-                            const totalAmount = items.reduce((sum, item) => sum + (item.price * item.quantity), 0); // Calculate total
-                          
-                            return actions.order.create({
-                              purchase_units: [
-                                {
-                                  amount: {
-                                    value: totalAmount.toFixed(2), // Dynamic total amount
-                                  },
-                                  // items: items.map(item => ({
-                                  //   name: item.name,
-                                  //   quantity: item.quantity,
-                                  //   unit_amount: {
-                                  //     value: item.price.toFixed(2),
-                                  //   },
-                                  // })),
-                                },
-                              ],
-                            });
-                          }}
-                          
-                          onApprove={(data, actions) => {
-                            return actions.order.capture().then((details) => {
-                              alert(
-                                "Transaction completed by " +
-                                  details.payer.name.given_name
-                              );
-                              // Notify your backend here
-                            });
-                          }}
-                        />
-                      </div>
-                    </PayPalScriptProvider> */}
-
                     <div className="mt-6">
-                      <a
+                      <Link to={`/checkout`}
                         href="#"
                         className="flex items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-red-500 to-red-700 px-6 py-3 text-base font-medium text-white shadow-sm hover:opacity-[0.9]"
                         onClick={() => setOpen(false)}
                       >
                         Checkout
-                      </a>
-                    </div>
+                      </Link >
+                    </div> 
                     <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                       <p>
                         or{" "}

@@ -5,6 +5,7 @@ import cors from "cors";
 const app = express();
 const port = 8080;
 import contactRoutes from "./routes/contactRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
  
 
 // MIDDLEWARES
@@ -17,6 +18,7 @@ app.use(cors({
 
 // ROUTES
 app.use("/contact", contactRoutes);
+app.use(orderRoutes);
 
 
 // Error Middlewares

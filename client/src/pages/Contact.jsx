@@ -8,7 +8,7 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
 const Contact = () => {
-    let fetchUrl = "http://localhost:8080";
+    let fetchUrl = import.meta.env.VITE_SERVER_URL;
     let [formData, setFormData] = useState({
         name: "",
         email: "",
