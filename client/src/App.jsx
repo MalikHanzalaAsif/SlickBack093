@@ -11,6 +11,7 @@ import Trousers from './pages/Trousers';
 import Hoodies from './pages/Hoodies';
 import Accessories from './pages/Accessories';
 import CheckoutForm from './components/CheckoutForm';
+import Thank from './components/Thank';
 import Cart from './pages/Cart';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -69,6 +70,7 @@ function App() {
                 <Route path="/shop/hoodies" element={<Hoodies />} />
                 <Route path="/shop/accessories" element={<Accessories />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/thank-you" element={<Thank />} />
                 <Route path="/checkout" element={<CheckoutForm />} />
               </Route>
             </Routes>

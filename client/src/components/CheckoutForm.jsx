@@ -343,6 +343,7 @@ const CheckoutForm = () => {
                                             alert(`Transaction completed by ${payerName}!`);
                                             console.log("Transaction details: ", details);
                                             await verifyPayment(details.id, formState);
+                                            navigate('/thank-you');
                                         });
                                     }}
                                     onCancel={() => {
