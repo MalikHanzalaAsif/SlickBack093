@@ -33,6 +33,28 @@ export default function CartModal({ open, setOpen }) {
     setCart(filteredCart);
   }
 
+  function increaseQuantity(currItem) {
+    const updatedCart = cart.map((cartItem) => {
+      if (cartItem.id === currItem.id) {
+        return { ...cartItem, quantity: cartItem.quantity + 1 };
+      }
+      return cartItem;
+    });
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCart(updatedCart);
+  }
+
+  function decreaseQuantity(currItem) {
+    const updatedCart = cart.map((cartItem) => {
+      if (cartItem.id === currItem.id) {
+        return { ...cartItem, quantity: Math.max(1, cartItem.quantity - 1) };
+      }
+      return cartItem;
+    });
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCart(updatedCart);
+  }
+
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-50">
       <DialogBackdrop
@@ -97,7 +119,7 @@ export default function CartModal({ open, setOpen }) {
                                 </div>
                                 <div className="flex flex-1 items-end justify-between text-sm">
                                   <p className="text-gray-500">
-                                    Qty {item.quantity}
+                                    Qty <button className="border p-1 text-black hover:bg-gray-100" onClick={() => increaseQuantity(item)}>+</button> {item.quantity} <button className="border p-1 text-black hover:bg-gray-100" onClick={() => decreaseQuantity(item)}>-</button>
                                   </p>
                                   <div className="flex">
                                     <button
@@ -133,7 +155,7 @@ export default function CartModal({ open, setOpen }) {
                       >
                         Checkout
                       </Link >
-                    </div> 
+                    </div>
                     <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                       <p>
                         or{" "}
