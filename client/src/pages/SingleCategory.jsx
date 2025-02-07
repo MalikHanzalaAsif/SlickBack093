@@ -7,26 +7,31 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import NavigationCategoriesButtons from '../components/NavigationCategoriesButtons';
 import BackToTopButton from '../components/BackToTopButton';
 import CardModal from '../components/CardModal';
+import NotFound from './NotFound';
+import { useLocation } from 'react-router-dom';
 
-const Hoodies = () => {
-    
-    const hoodiesArray = categories.filter((item) => item.category === "hoodie");
+const SingleCategory = () => {
+    const location =  useLocation();
+    const accessoriesArray = categories.filter((item) => item.category === location.pathname.replace("/shop/", ""));
+    if(!accessoriesArray || accessoriesArray.length === 0) {
+        return <NotFound />
+    }
 
     const [openModal, setOpenModal] = useState(false);
-        const [selectedItem, setSelectedItem] = useState(null);
-    
-    
-        const handleOpenModal = (item) => {
-            setSelectedItem(item);
-            setOpenModal(true);
-        };
-    
-        const handleCloseModal = () => {
-            setOpenModal(false);
-        };
+    const [selectedItem, setSelectedItem] = useState(null);
+
+
+    const handleOpenModal = (item) => {
+        setSelectedItem(item);
+        setOpenModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setOpenModal(false);
+    };
 
     const [likedItems, setLikedItems] = useState(
-        hoodiesArray.map(() => false) // Initialize all items as not liked
+        accessoriesArray.map(() => false) // Initialize all items as not liked
     );
 
     // Function to handle like toggle for an individual item
@@ -38,15 +43,15 @@ const Hoodies = () => {
 
     return (
         <>
-                <NavigationCategoriesButtons />
-                <BackToTopButton />
+            <NavigationCategoriesButtons />
+            <BackToTopButton />
             <section id="shop" className="pt-16">
                 <h1 className="shopHeadingMain text-5xl font-semibold text-center mb-16">
                     Shop By Categories
                 </h1>
-                <h2 className="text-4xl font-semibold text-center mb-16">Hoodies</h2>
+                <h2 className="text-4xl font-semibold text-center mb-16">Accessories</h2>
                 <div className="allCategories flex w-full flex-wrap justify-center">
-                    {hoodiesArray.map((item, index) => (
+                    {accessoriesArray.map((item, index) => (
                         <div
                             key={item.id} // Add a unique key
                             className="allCategoriesCard m-4 flex flex-col w-full max-w-72 justify-center p-4 cursor-pointer hover:text-black"
@@ -87,7 +92,7 @@ const Hoodies = () => {
                                     <b className="m-2 ml-0">${item.price}</b>
                                 </div>
                                 <div className="arrowIcon m-2">
-                                    <AddShoppingCartIcon/>
+                                    <AddShoppingCartIcon />
                                 </div>
                             </div>
                         </div>
@@ -101,4 +106,4 @@ const Hoodies = () => {
     );
 };
 
-export default Hoodies;
+export default SingleCategory;

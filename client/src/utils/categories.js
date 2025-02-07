@@ -4,7 +4,7 @@ export default [
     "description": "demo title for a TShirt.",
     "image": "/items/shirt1.png",
     "price": "99.99",
-    "category": "shirt",
+    "category": "tshirts",
     "title": "Seasonal TShirt"
   },
   {
@@ -12,7 +12,7 @@ export default [
     "description": "demo title for a TShirt.",
     "image": "/items/shirt2.png",
     "price": "99.99",
-    "category": "shirt",
+    "category": "tshirts",
     "title": "Seasonal TShirt"
   },
   {
@@ -20,7 +20,7 @@ export default [
     "description": "demo title for a TShirt.",
     "image": "/items/shirt3.png",
     "price": "99.99",
-    "category": "shirt",
+    "category": "tshirts",
     "title": "Seasonal TShirt"
   },
   {
@@ -28,7 +28,7 @@ export default [
     "description": "demo title for a TShirt.",
     "image": "/items/shirt4.png",
     "price": "99.99",
-    "category": "shirt",
+    "category": "tshirts",
     "title": "Seasonal TShirt"
   },
   {
@@ -36,7 +36,7 @@ export default [
     "description": "demo title for a TShirt.",
     "image": "/items/shirt1.png",
     "price": "99.99",
-    "category": "shirt",
+    "category": "tshirts",
     "title": "Seasonal TShirt"
   },
   {
@@ -44,7 +44,7 @@ export default [
     "description": "demo title for a TShirt.",
     "image": "/items/shirt2.png",
     "price": "99.99",
-    "category": "shirt",
+    "category": "tshirts",
     "title": "Seasonal TShirt"
   },
   {
@@ -52,7 +52,7 @@ export default [
     "description": "demo title for a TShirt.",
     "image": "/items/shirt3.png",
     "price": "99.99",
-    "category": "shirt",
+    "category": "tshirts",
     "title": "Seasonal TShirt"
   },
   {
@@ -60,7 +60,7 @@ export default [
     "description": "demo title for a TShirt.",
     "image": "/items/shirt4.png",
     "price": "99.99",
-    "category": "shirt",
+    "category": "tshirts",
     "title": "Seasonal TShirt"
   },
   {
@@ -68,7 +68,7 @@ export default [
     "description": "demo title for a Trouser.",
     "image": "/items/trouser1.png",
     "price": "99.99",
-    "category": "trouser",
+    "category": "trousers",
     "title": "Seasonal Trouser"
   },
   {
@@ -76,7 +76,7 @@ export default [
     "description": "demo title for a Trouser.",
     "image": "/items/trouser2.png",
     "price": "99.99",
-    "category": "trouser",
+    "category": "trousers",
     "title": "Seasonal Trouser"
   },
   {
@@ -84,7 +84,7 @@ export default [
     "description": "demo title for a Trouser.",
     "image": "/items/trouser3.png",
     "price": "99.99",
-    "category": "trouser",
+    "category": "trousers",
     "title": "Seasonal Trouser"
   },
   {
@@ -92,7 +92,7 @@ export default [
     "description": "demo title for a Trouser.",
     "image": "/items/trouser4.png",
     "price": "99.99",
-    "category": "trouser",
+    "category": "trousers",
     "title": "Seasonal Trouser"
   },
   {
@@ -100,7 +100,7 @@ export default [
     "description": "demo title for a Trouser.",
     "image": "/items/trouser1.png",
     "price": "99.99",
-    "category": "trouser",
+    "category": "trousers",
     "title": "Seasonal Trouser"
   },
   {
@@ -108,7 +108,7 @@ export default [
     "description": "demo title for a Trouser.",
     "image": "/items/trouser2.png",
     "price": "99.99",
-    "category": "trouser",
+    "category": "trousers",
     "title": "Seasonal Trouser"
   },
   {
@@ -116,7 +116,7 @@ export default [
     "description": "demo title for a Trouser.",
     "image": "/items/trouser3.png",
     "price": "99.99",
-    "category": "trouser",
+    "category": "trousers",
     "title": "Seasonal Trouser"
   },
   {
@@ -124,7 +124,7 @@ export default [
     "description": "demo title for a Trouser.",
     "image": "/items/trouser4.png",
     "price": "99.99",
-    "category": "trouser",
+    "category": "trousers",
     "title": "Seasonal Trouser"
   },
   {
@@ -132,7 +132,7 @@ export default [
     "description": "demo title for a Hoodie.",
     "image": "/items/hoodie1.png",
     "price": "99.99",
-    "category": "hoodie",
+    "category": "hoodies",
     "title": "Seasonal Hoodie"
   },
   {
@@ -140,7 +140,7 @@ export default [
     "description": "demo title for a Hoodie.",
     "image": "/items/hoodie2.png",
     "price": "99.99",
-    "category": "hoodie",
+    "category": "hoodies",
     "title": "Seasonal Hoodie"
   },
   {
@@ -148,7 +148,7 @@ export default [
     "description": "demo title for a Hoodie.",
     "image": "/items/hoodie3.png",
     "price": "99.99",
-    "category": "hoodie",
+    "category": "hoodies",
     "title": "Seasonal Hoodie"
   },
   {
@@ -156,7 +156,7 @@ export default [
     "description": "demo title for a Hoodie.",
     "image": "/items/hoodie4.png",
     "price": "99.99",
-    "category": "hoodie",
+    "category": "hoodies",
     "title": "Seasonal Hoodie"
   },
   {
@@ -164,7 +164,7 @@ export default [
     "description": "demo title for a Hoodie.",
     "image": "/items/hoodie1.png",
     "price": "99.99",
-    "category": "hoodie",
+    "category": "hoodies",
     "title": "Seasonal Hoodie"
   },
   {
@@ -172,7 +172,7 @@ export default [
     "description": "demo title for a Hoodie.",
     "image": "/items/hoodie2.png",
     "price": "99.99",
-    "category": "hoodie",
+    "category": "hoodies",
     "title": "Seasonal Hoodie"
   },
   {
@@ -180,7 +180,7 @@ export default [
     "description": "demo title for a Hoodie.",
     "image": "/items/hoodie3.png",
     "price": "99.99",
-    "category": "hoodie",
+    "category": "hoodies",
     "title": "Seasonal Hoodie"
   },
   {
@@ -188,7 +188,7 @@ export default [
     "description": "demo title for a Hoodie.",
     "image": "/items/hoodie4.png",
     "price": "99.99",
-    "category": "hoodie",
+    "category": "hoodies",
     "title": "Seasonal Hoodie"
   },
   {
