@@ -11,8 +11,8 @@ export default function Home() {
         <div data-aos="fade-right">
           <div id="homeTextBox" className=" text-white absolute p-4 rounded-md shadow-md shadow-black">
             <p className="text-sm mb-4">NEW COLLECTION</p>
-            <h2 className="text-5xl mb-2">THE WEATHER</h2>
-            <h2 className="text-5xl mb-2">STYLE</h2>
+            <h2 className="text-4xl mb-4">WEAR YOUR STORY,</h2>
+            <h2 className="text-4xl mb-2">OWN YOUR STYLE</h2>
             <a href="#items">
               <button className="border border-white rounded-sm mt-2 p-2 hover:bg-white hover:text-black transition duration-300">Explore Collection</button>
             </a>

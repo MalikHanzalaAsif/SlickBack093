@@ -3,34 +3,34 @@ import { Modal, Box, IconButton, Typography } from "@mui/material";
 import Button from '@mui/material/Button';
 import { useCart } from "./CartContext";
 import toastEmitter from './ui/toast';
+import colors from '../utils/colors.js';
 
 const CardModal = ({ openModal, handleCloseModal, selectedItem }) => {
-    const {cart, setCart} = useCart();
+    const { cart, setCart } = useCart();
 
     function updateCart(selectedItem) {
         const modifiedSelectedItem = {
-          ...selectedItem,
-          quantity: 1,
-          color: "random",
+            ...selectedItem,
+            quantity: 1,
         };
 
         const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
-      
+
         const existingItemIndex = currentCart.findIndex(
-          (item) => item.id === selectedItem.id
+            (item) => item.id === selectedItem.id
         );
-      
+
         if (existingItemIndex > -1) {
-          currentCart[existingItemIndex].quantity += 1;
+            currentCart[existingItemIndex].quantity += 1;
         } else {
-          currentCart.push(modifiedSelectedItem);
+            currentCart.push(modifiedSelectedItem);
         }
-        
+
         setCart(currentCart)
         localStorage.setItem("cart", JSON.stringify(currentCart));
-      }
-      
-      
+    }
+
+
 
     return (
         <Modal open={openModal} onClose={handleCloseModal} >
@@ -49,21 +49,29 @@ const CardModal = ({ openModal, handleCloseModal, selectedItem }) => {
             >
                 {selectedItem && (
                     <>
-                        <Typography variant="h6" style={{ marginBottom: "1rem" }}>{selectedItem.title}</Typography>
+                        <Typography variant="h6" >{selectedItem.title}</Typography>
+                        <p style={{ marginBottom: "1rem", fontSize: "small" }}>{selectedItem.tagline}</p>
                         <div className='flex justify-center items-center'>
                             <img
                                 src={selectedItem.image}
                                 alt={selectedItem.title}
                                 className="h-36 w-36 object-cover mb-4"
                             />
-
                         </div>
-                        <Typography variant="body1" paragraph style={{ fontWeight: "bold" }}>
+                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Color</label>
+                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Choose a country</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option>
+                        </select>
+                        <Typography variant="body1" paragraph style={{ fontWeight: "bold", marginTop: "1rem" }}>
                             Price: ${selectedItem.price}
                         </Typography>
                         <Typography variant="body2" paragraph>
                             {/* Add any other content related to the item */}
-                            Description: {selectedItem.description || "No description available."}
+                            <b>Description:</b> {selectedItem.description || "No description available."}
                         </Typography>
                         <div>
                             <Button variant="outlined" color="error" onClick={handleCloseModal} style={{ marginRight: "1rem" }}>

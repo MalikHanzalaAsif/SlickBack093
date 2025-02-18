@@ -21,7 +21,7 @@ const options = [
     url: "/shop/tshirts",
   },
   {
-    name: "Trousers",
+    name: "Trousers/Pants",
     url: "/shop/trousers",
   },
   {
@@ -29,8 +29,36 @@ const options = [
     url: "/shop/hoodies",
   },
   {
-    name: "Accessories",
-    url: "/shop/accessories",
+    name: "Caps",
+    url: "/shop/caps"
+  },
+  {
+    name: "SweatShirts",
+    url: "/shop/sweatshirts"
+  },
+  {
+    name: "Keychains",
+    url: "/shop/keychains"
+  },
+  {
+    name: "Notebooks",
+    url: "/shop/notebooks"
+  },
+  {
+    name: "Mousepads",
+    url: "/shop/mousepads"
+  },
+  {
+    name: "Mobile Covers",
+    url: "/shop/mobilecovers"
+  },
+  {
+    name: "Shorts",
+    url: "shop/shorts"
+  },
+  {
+    name: "Mugs",
+    url: "shop/mugs"
   },
 ];
 
@@ -105,7 +133,7 @@ export default function SplitButton() {
 
         {/* Popper Menu */}
         <Popper
-          sx={{ zIndex: 1 }}
+          sx={{ zIndex: 1}}
           open={open}
           anchorEl={anchorRef.current}
           role={undefined}
@@ -122,7 +150,7 @@ export default function SplitButton() {
             >
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList id="split-button-menu" autoFocusItem>
+                  <MenuList id="split-button-menu" autoFocusItem style={{ maxHeight: 200, overflowY: 'scroll' }}>
                     {options.map((option, index) => (
                       <MenuItem
                         key={option.name}

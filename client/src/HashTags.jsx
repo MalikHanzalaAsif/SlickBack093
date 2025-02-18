@@ -6,7 +6,7 @@ const hashTags = () => {
     <section id="hashTags" className='flex flex-col'>
         <div className="hashTagsText text-center mb-16 mt-6">
             <h1 className='text-3xl'>#instagram #slickback093</h1>
-            <p className='text-sm font-mono'>Brand that puts you first. Top Quality Products</p>
+            <p className='text-sm font-mono'>Elevate Everyday – Where Quality Meets Expression.</p>
         </div>
     <div className="hashTagsImages flex justify-between">
       <div className="w-1/5 aspect-w-1 aspect-h-1 overflow-hidden">

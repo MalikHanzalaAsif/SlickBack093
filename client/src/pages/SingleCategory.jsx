@@ -12,8 +12,8 @@ import { useLocation } from 'react-router-dom';
 
 const SingleCategory = () => {
     const location =  useLocation();
-    const accessoriesArray = categories.filter((item) => item.category === location.pathname.replace("/shop/", ""));
-    if(!accessoriesArray || accessoriesArray.length === 0) {
+    const categoriesArray = categories.filter((item) => item.category === location.pathname.replace("/shop/", ""));
+    if(!categoriesArray || categoriesArray.length === 0) {
         return <NotFound />
     }
 
@@ -31,7 +31,7 @@ const SingleCategory = () => {
     };
 
     const [likedItems, setLikedItems] = useState(
-        accessoriesArray.map(() => false) // Initialize all items as not liked
+        categoriesArray.map(() => false) // Initialize all items as not liked
     );
 
     // Function to handle like toggle for an individual item
@@ -51,7 +51,7 @@ const SingleCategory = () => {
                 </h1>
                 <h2 className="text-4xl font-semibold text-center mb-16">Accessories</h2>
                 <div className="allCategories flex w-full flex-wrap justify-center">
-                    {accessoriesArray.map((item, index) => (
+                    {categoriesArray.map((item, index) => (
                         <div
                             key={item.id} // Add a unique key
                             className="allCategoriesCard m-4 flex flex-col w-full max-w-72 justify-center p-4 cursor-pointer hover:text-black"
