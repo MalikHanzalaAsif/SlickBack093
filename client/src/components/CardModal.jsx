@@ -58,13 +58,9 @@ const CardModal = ({ openModal, handleCloseModal, selectedItem }) => {
                                 className="h-36 w-36 object-cover mb-4"
                             />
                         </div>
-                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Color</label>
-                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Choose a country</option>
-                            <option value="US">United States</option>
-                            <option value="CA">Canada</option>
-                            <option value="FR">France</option>
-                            <option value="DE">Germany</option>
+                        <label for="colorSelect" className='mr-2'>Select Color: </label>
+                        <select id="colorSelect" className="p-2 rounded-lg" defaultValue={"White"}>
+                            {colors.map((color)=> <option key={color.hex} value={color.name} className='font-sans'>{color.name}</option> )}
                         </select>
                         <Typography variant="body1" paragraph style={{ fontWeight: "bold", marginTop: "1rem" }}>
                             Price: ${selectedItem.price}

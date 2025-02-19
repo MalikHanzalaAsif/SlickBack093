@@ -62,7 +62,14 @@ function App() {
                 <Route path="/shop/tshirts" element={<SingleCategory />} />
                 <Route path="/shop/trousers" element={<SingleCategory />} />
                 <Route path="/shop/hoodies" element={<SingleCategory />} />
-                <Route path="/shop/accessories" element={<SingleCategory />} />
+                <Route path="/shop/caps" element={<SingleCategory />} />
+                <Route path="/shop/sweatshirts" element={<SingleCategory />} />
+                <Route path="/shop/keychains" element={<SingleCategory />} />
+                <Route path="/shop/mobilecovers" element={<SingleCategory />} />
+                <Route path="/shop/notebooks" element={<SingleCategory />} />
+                <Route path="/shop/mugs" element={<SingleCategory />} />
+                <Route path="/shop/shorts" element={<SingleCategory />} />
+                <Route path="/shop/mousepads" element={<SingleCategory />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/thank-you" element={<Thank />} />
                 <Route path="/checkout" element={<CheckoutForm />} />

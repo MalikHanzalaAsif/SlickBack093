@@ -88,7 +88,7 @@ const SingleCategory = () => {
                             </div>
                             <div className="itemTextBox flex justify-between">
                                 <div className="itemText">
-                                    <p className="text-sm m-2 ml-0">{item.title}</p>
+                                    <p className="text-sm m-2 ml-0">{item.description}</p>
                                     <b className="m-2 ml-0">${item.price}</b>
                                 </div>
                                 <div className="arrowIcon m-2">

@@ -54,11 +54,11 @@ const options = [
   },
   {
     name: "Shorts",
-    url: "shop/shorts"
+    url: "/shop/shorts"
   },
   {
     name: "Mugs",
-    url: "shop/mugs"
+    url: "/shop/mugs"
   },
 ];
 
