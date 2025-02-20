@@ -11,15 +11,22 @@ import NotFound from './NotFound';
 import { useLocation } from 'react-router-dom';
 
 const SingleCategory = () => {
-    const location =  useLocation();
+    const location = useLocation();
     const categoriesArray = categories.filter((item) => item.category === location.pathname.replace("/shop/", ""));
-    if(!categoriesArray || categoriesArray.length === 0) {
+    if (!categoriesArray || categoriesArray.length === 0) {
         return <NotFound />
     }
 
     const [openModal, setOpenModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
+    function handleColorChange(e){
+        setSelectedItem((prev) => ({
+          ...prev,
+          "image": `/items/${prev.category}${e.target.value}.webp`,
+          "color": `${e.target.value}`,
+        }))
+      };
 
     const handleOpenModal = (item) => {
         setSelectedItem(item);
@@ -49,7 +56,7 @@ const SingleCategory = () => {
                 <h1 className="shopHeadingMain text-5xl font-semibold text-center mb-16">
                     Shop By Categories
                 </h1>
-                <h2 className="text-4xl font-semibold text-center mb-16">Accessories</h2>
+                <h2 className="text-4xl font-semibold text-center mb-16">{categoriesArray[0].category}</h2>
                 <div className="allCategories flex w-full flex-wrap justify-center">
                     {categoriesArray.map((item, index) => (
                         <div
@@ -80,11 +87,13 @@ const SingleCategory = () => {
                                         }}
                                     />
                                 )}
-                                <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="h-60 max-w-56"
-                                />
+                                <div className="h-60 flex flex-col justify-center items-center">
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        className="h-auto max-w-56"
+                                    />
+                                </div>
                             </div>
                             <div className="itemTextBox flex justify-between">
                                 <div className="itemText">
@@ -101,7 +110,7 @@ const SingleCategory = () => {
             </section>
 
             {/* CARD MODAL */}
-            <CardModal openModal={openModal} handleCloseModal={handleCloseModal} selectedItem={selectedItem} />
+            <CardModal openModal={openModal} handleCloseModal={handleCloseModal} selectedItem={selectedItem} onColorChange={handleColorChange}/>
         </>
     );
 };

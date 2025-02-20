@@ -13,20 +13,27 @@ export default function Items({ items }) {
   const [likedItems, setLikedItems] = useState(
     items.map(() => false) // Initialize all items as not liked
   );
-  
+
   const [openModal, setOpenModal] = useState(false);
-      const [selectedItem, setSelectedItem] = useState(null);
-  
-  
-      const handleOpenModal = (item) => {
-          setSelectedItem(item);
-          setOpenModal(true);
-      };
-  
-      const handleCloseModal = () => {
-          setOpenModal(false);
-      };
-  
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  function handleColorChange(e){
+    setSelectedItem((prev) => ({
+      ...prev,
+      "image": `/items/${prev.category}${e.target.value}.webp`,
+      "color": `${e.target.value}`,
+    }))
+  };
+
+  const handleOpenModal = (item) => {
+    setSelectedItem(item);
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
 
   // Function to handle like toggle for an individual item
   function changeLiking(index) {
@@ -44,59 +51,60 @@ export default function Items({ items }) {
       <div id="itemCards" className="flex w-full flex-wrap justify-center">
         {items.map((item, index) => {
           return (
-              <div
-                key={index}
-                className="item m-4 flex flex-col w-full max-w-72 justify-center p-4 cursor-pointer hover:text-black"
-                data-aos="fade-up"
-                onClick={() => handleOpenModal(item)} // Open modal on card click
-              >
-                <div className="itemImage flex flex-col bg-gray-100 p-4 mb-2 max-w-96">
-                  {likedItems[index] ? (
-                    <FavoriteIcon
-                      className=""
-                      id="heartIcon"
-                      onClick={(e) => {
-                        e.preventDefault(); // Prevent default Link behavior
-                        e.stopPropagation(); // Stop event from propagating to Link
-                        changeLiking(index); // Toggle the like state
-                      }}
-                    />
-                  ) : (
-                    <FavoriteBorderIcon
-                      className=""
-                      id="heartIcon"
-                      onClick={(e) => {
-                        e.preventDefault(); // Prevent default Link behavior
-                        e.stopPropagation(); // Stop event from propagating to Link
-                        changeLiking(index); // Toggle the like state
-                      }}
-                    />
-                  )}
-
+            <div
+              key={index}
+              className="item m-4 flex flex-col w-full max-w-72 justify-center p-4 cursor-pointer hover:text-black"
+              data-aos="fade-up"
+              onClick={() => handleOpenModal(item)} // Open modal on card click
+            >
+              <div className="itemImage flex flex-col bg-gray-100 p-4 mb-2 max-w-96">
+                {likedItems[index] ? (
+                  <FavoriteIcon
+                    className=""
+                    id="heartIcon"
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default Link behavior
+                      e.stopPropagation(); // Stop event from propagating to Link
+                      changeLiking(index); // Toggle the like state
+                    }}
+                  />
+                ) : (
+                  <FavoriteBorderIcon
+                    className=""
+                    id="heartIcon"
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default Link behavior
+                      e.stopPropagation(); // Stop event from propagating to Link
+                      changeLiking(index); // Toggle the like state
+                    }}
+                  />
+                )}
+                <div className="h-60 flex flex-col justify-center items-center">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="h-60 max-w-56"
+                    className="h-auto max-w-56"
                   />
                 </div>
-                <div className="itemTextBox flex">
-                  <div className="itemText">
-                    <p className="text-sm m-2 ml-0">{item.description}</p>
-                    <b className="m-2 ml-0">${item.price}</b>
-                  </div>
-                  <div className="arrowIcon m-2">
-                    <AddShoppingCartIcon />
-                  </div>
+              </div>
+              <div className="itemTextBox flex">
+                <div className="itemText">
+                  <p className="text-sm m-2 ml-0">{item.description}</p>
+                  <b className="m-2 ml-0">${item.price}</b>
+                </div>
+                <div className="arrowIcon m-2">
+                  <AddShoppingCartIcon />
                 </div>
               </div>
+            </div>
           );
         })}
       </div>
 
       {/* CARD MODAL */}
-      <CardModal openModal={openModal} handleCloseModal={handleCloseModal} selectedItem={selectedItem} />
-            
-       {/* SHOW MORE BUTTON */}
+      <CardModal openModal={openModal} handleCloseModal={handleCloseModal} selectedItem={selectedItem} onColorChange={handleColorChange}/>
+
+      {/* SHOW MORE BUTTON */}
       <div className="itemsButton flex justify-center">
         <Link to="/shop">
           <button className="showMoreButton mb-4">Show More</button>

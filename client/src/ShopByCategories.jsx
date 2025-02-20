@@ -38,8 +38,8 @@ export default function ShopByCategories() {
           className="no-scrollbar justify-center"
         >
           <ShopByCategoriesCard src={"/img/accessories.jpeg"} name={"Accessories"}/>
-          <ShopByCategoriesCard src={"/img/mugs.webp"} name={"Mugs"}/>
-          <ShopByCategoriesCard src={"/img/caps.jpg"} name={"Caps"}/>
+          <ShopByCategoriesCard src={"/img/mugs.webp"} name={"mugs"}/>
+          <ShopByCategoriesCard src={"/img/caps.jpg"} name={"caps"}/>
           <ShopByCategoriesCard src={"/img/watches.webp"} name={"Watches"}/>
         </Box>
         <button

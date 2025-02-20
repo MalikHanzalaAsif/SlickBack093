@@ -12,13 +12,13 @@ export default function Footer() {
           <a href='#' className='mb-4 block'>Disclaimer</a>
           <ul className="flex mb-4">
             <li>
-              <a href="#"><img src="/img/fb.png" alt="facebook icon" className="h-6 cursor-pointer" /></a>
+              <a href="https://www.facebook.com/profile.php?id=61571436315456" target='_blank'><img src="/img/fb.png" alt="facebook icon" className="h-8 cursor-pointer" /></a>
             </li>
             <li>
-              <a href="#"><img src="/img/insta.png" alt="instagram icon" className="h-6 cursor-pointer" /></a>
+              <a href="https://www.instagram.com/sb.gaming.093/" target='_blank'><img src="/img/insta.png" alt="instagram icon" className="h-8 cursor-pointer" /></a>
             </li>
             <li>
-              <a href="#"><img src="/img/linkedin.png" alt="linkedin icon" className="h-6 cursor-pointer" /></a>
+              <a href="https://www.twitch.tv/slickback093" target='_blank'><img src="/img/twitchIcon.png" alt="twitch icon" className="h-8 cursor-pointer" /></a>
             </li>
           </ul>
         </div>
@@ -32,11 +32,19 @@ export default function Footer() {
         </div>
         <div id="box3" className='mb-16 mt-8'>
           <h1 className="text-xl mb-4">PRODUCTS</h1>
-          <Link to='/shop' className="mb-4 block cursor-pointer">ACCESSORIES</Link>
-          <Link to='/shop' className="mb-4 block cursor-pointer">CLOTHES</Link>
-          <Link to='/shop' className="mb-4 block cursor-pointer">MUGS</Link>
-          <Link to='/shop' className="mb-4 block cursor-pointer">CAPS</Link>
-          <Link to='/shop' className="mb-4 block cursor-pointer">WATCHES</Link>
+          <Link to='/shop/tshirts' className="mb-4 block cursor-pointer">TSHIRTS</Link>
+          <Link to='/shop/trousers' className="mb-4 block cursor-pointer">TROUSERS</Link>
+          <Link to='/shop/sweatshirts' className="mb-4 block cursor-pointer">SWEATSHIRTS</Link>
+          <Link to='/shop/shorts' className="mb-4 block cursor-pointer">SHORTS</Link>
+          <Link to='/shop/hoodies' className="mb-4 block cursor-pointer">HOODIES</Link>
+          <Link to='/shop/caps' className="mb-4 block cursor-pointer">CAPS</Link>
+        </div>
+        <div id="box4" className='mb-16 mt-8'>
+          <Link to='/shop/keychains' className="mb-4 block cursor-pointer">KEYCHAINS</Link>
+          <Link to='/shop/notebooks' className="mb-4 block cursor-pointer">NOTE BOOKS</Link>
+          <Link to='/shop/mousepads' className="mb-4 block cursor-pointer">MOUSEPADS</Link>
+          <Link to='/shop/mobilecovers' className="mb-4 block cursor-pointer">MOBILE COVERS</Link>
+          <Link to='/shop/mugs' className="mb-4 block cursor-pointer">MUGS</Link>
         </div>
         <div id="box4" className='mb-16 mt-8'>
           <h1 className="text-xl mb-4">Signup for email</h1>

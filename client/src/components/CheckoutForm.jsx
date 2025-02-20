@@ -269,6 +269,7 @@ const CheckoutForm = () => {
                         ...style,
                         overflowY: "auto",
                         maxHeight: "90vh",
+                        boxShadow: "inset 0 0 6px #000000",
                     }}>
                         <h1 id="modal-modal-title" variant="h4" component="h2" className='text-center text-4xl mb-4'>
                             Order Details

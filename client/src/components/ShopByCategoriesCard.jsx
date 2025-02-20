@@ -4,11 +4,15 @@ import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/joy/Typography";
 import { Link } from "react-router-dom";
 
-export default function ShopByCategoriesCard({src,name}) {
-  
-    return(
-      <Link to="/shop">
-        <Card component="li" sx={{ minWidth: 200,}} className="shopByCategoriesCard">
+export default function ShopByCategoriesCard({ src, name }) {
+  let redirectUrl = `/shop/${name}`;
+  if(name === "Accessories" || name === "Watches"){
+    redirectUrl = "/shop";
+  }
+
+  return (
+    <Link to={redirectUrl}>
+      <Card component="li" sx={{ minWidth: 200, }} className="shopByCategoriesCard">
         <CardCover>
           <img
             src={src}
@@ -26,6 +30,6 @@ export default function ShopByCategoriesCard({src,name}) {
           </Typography>
         </CardContent>
       </Card>
-      </Link>
-    );
+    </Link>
+  );
 };
