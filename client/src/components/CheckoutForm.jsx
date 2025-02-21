@@ -331,6 +331,7 @@ const CheckoutForm = () => {
                                                         value: parseFloat(item.price).toFixed(2),
                                                         currency_code: "USD",
                                                     },
+                                                    description: `color: ${item.color}`
                                                 })),
                                             },
                                         ];

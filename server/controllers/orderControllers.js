@@ -4,15 +4,15 @@ import nodemailer from 'nodemailer';
 const getAccessToken = async () => {
     try {
         const auth = await axios.post(
-            `${process.env.PAYPAL_SANDBOX_API}/v1/oauth2/token`,
+            `${process.env.PAYPAL_LIVE_API}/v1/oauth2/token`,
             "grant_type=client_credentials",
             {
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
                 },
                 auth: {
-                    username: process.env.PAYPAL_SANDBOX_CLIENT_ID,
-                    password: process.env.PAYPAL_SANDBOX_SECRET,
+                    username: process.env.PAYPAL_LIVE_CLIENT_ID,
+                    password: process.env.PAYPAL_LIVE_SECRET,
                 },
             }
         );
@@ -26,7 +26,7 @@ const getAccessToken = async () => {
 
 const getOrderDetails = async (orderId, accessToken) => {
     try {
-        const response = await axios.get(`${process.env.PAYPAL_SANDBOX_API}/v2/checkout/orders/${orderId}`, {
+        const response = await axios.get(`${process.env.PAYPAL_LIVE_API}/v2/checkout/orders/${orderId}`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`,
             },
@@ -59,6 +59,7 @@ export const sendEmails = async (formData, orderDetails, orderId) => {
         const tax = breakdown.tax_total ? `${breakdown.tax_total.value} ${breakdown.tax_total.currency_code}` : "0.00";
 
         const discount = breakdown.discount ? `${breakdown.discount}` : "0.00";
+
 
 
         const transporter = nodemailer.createTransport({
