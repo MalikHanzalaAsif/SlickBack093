@@ -47,7 +47,7 @@
 .homeCircle {
     position: absolute;
     background: linear-gradient(to right, #b10101, #6d0101);
-    height: 110%;
+    height: 100%;
     width: 35vw;
     z-index: 1;
     border-radius: 50%;
