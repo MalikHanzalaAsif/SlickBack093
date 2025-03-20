@@ -3,7 +3,6 @@ import nodemailer from "nodemailer";
 // Send email
 export const sendEmail = async (req, res, next) => {
     try {
-        console.log(req.body);
         const { name, email, number, message } = req.body;
 
         // Set up Nodemailer transporter

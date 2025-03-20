@@ -16,7 +16,6 @@ const getAccessToken = async () => {
                 },
             }
         );
-        console.log("Access Token:", auth.data.access_token); // Optional: For debugging
         return auth.data.access_token;
     } catch (error) {
         console.error("Failed to get access token:", error.message);
