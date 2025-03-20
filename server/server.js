@@ -27,11 +27,11 @@ app.get("/health", (req,res) => {
 
 
 // Error Middlewares
-app.all("*", (req, res, next) => {
-    const error = new Error("Page not found!");
-    error.status = 404;
-    next(error);
-});
+// app.all("*", (req, res, next) => {
+//     const error = new Error("Page not found!");
+//     error.status = 404;
+//     next(error);
+// });
 
 app.use((err, req, res, next) => {
     res.json({ "error": err.message, "status": err.status || 400 });
