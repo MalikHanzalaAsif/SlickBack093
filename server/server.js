@@ -20,6 +20,11 @@ app.use(cors({
 app.use("/contact", contactRoutes);
 app.use(orderRoutes);
 
+//Health Routh for preventing server down
+app.get("/health", (req,res) => {
+    res.status(200).send("ok")
+});
+
 
 // Error Middlewares
 app.all("*", (req, res, next) => {
@@ -27,6 +32,7 @@ app.all("*", (req, res, next) => {
     error.status = 404;
     next(error);
 });
+
 app.use((err, req, res, next) => {
     res.json({ "error": err.message, "status": err.status || 400 });
     console.log(err);
