@@ -31,7 +31,12 @@
     }
 }
 #home{
-    background: linear-gradient(to right, #ece3f6, #f8f6df);
+    /* background: linear-gradient(to right, #ece3f6, #f8f6df); */
+    background-image: url(/img/slickbackBg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* backdrop-filter: blur(20px); */
 }
 
 #homeTextBox{
@@ -42,17 +47,6 @@
 
 #homeTextImage {
     position: relative; /* Establishes stacking context */
-}
-
-.homeCircle {
-    position: absolute;
-    background: linear-gradient(to right, #b10101, #6d0101);
-    height: 100%;
-    width: 35vw;
-    z-index: 1;
-    border-radius: 50%;
-    top: 0;
-    left: 13%; 
 }
 
 .homeMainImage {
